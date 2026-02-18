@@ -128,7 +128,7 @@
             <h1
                 class="text-4xl md:text-7xl font-heading font-black tracking-tight leading-tight mb-6 md:mb-8 drop-shadow-xl">
                 プロ級サイトが、<br />
-                <span class="text-brand-accent">この値段で。</span>
+                <span class="text-brand-accent">チャットで完結。</span>
             </h1>
 
             <p class="mt-4 md:mt-6 max-w-2xl mx-auto text-base md:text-xl text-gray-100 font-medium leading-relaxed">
@@ -213,11 +213,11 @@
                     </div>
                     <div
                         class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 group-hover:text-brand-blue group-hover:bg-blue-50 transition">
-                        <i class="fas fa-sync-alt text-3xl"></i>
+                        <i class="fas fa-comments text-3xl"></i>
                     </div>
-                    <h4 class="font-bold text-lg mb-3">更新が面倒</h4>
+                    <h4 class="font-bold text-lg mb-3">打ち合わせが面倒</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        本業が忙しくてブログやご案内を更新できない。パソコン作業も苦手だ...
+                        対面の打ち合わせは時間も取られるし、専門用語も多くて何だか怖いし面倒くさい...
                     </p>
                 </div>
                 <div
@@ -238,86 +238,74 @@
             <div class="text-center mt-12">
                 <i class="fas fa-arrow-down text-3xl text-brand-blue animate-bounce"></i>
                 <p class="mt-4 text-xl font-bold text-brand-navy">その悩み、<span class="text-brand-blue text-2xl">LBS
-                        WEB</span> がすべて解決します。</p>
+                        WEB</span> なら<br class="md:hidden">チャットだけで解決します。</p>
             </div>
         </div>
     </section>
 
-    <!-- Features (Video Background, Minimal Text) -->
-    <section id="features" class="relative py-32 overflow-hidden text-white">
-        <!-- Video Background -->
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-            <source src="assets/features-bg.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <!-- Heavy Overlay for readability -->
-        <div class="absolute inset-0 bg-black/80 z-10"></div>
-
+    <!-- Features (Video Top, Minimal Text) -->
+    <section id="features" class="relative py-20 overflow-hidden bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-            <div class="text-center mb-20">
-                <h2 class="text-brand-accent font-bold tracking-widest uppercase mb-3 text-sm">WHY CHOOSE US</h2>
-                <h3 class="text-3xl md:text-5xl font-heading font-black text-white drop-shadow-lg">選ばれる5つの理由</h3>
+            <div class="text-center mb-12">
+                <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-3 text-sm">WHY CHOOSE US</h2>
+                <h3 class="text-3xl md:text-5xl font-heading font-black text-gray-900 drop-shadow-sm">選ばれる理由</h3>
+            </div>
+
+            <!-- Video at Top (Content) -->
+            <div class="mb-16 rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-100">
+                <video autoplay muted loop playsinline class="w-full h-auto object-cover">
+                    <source src="assets/features-bg.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
 
             <!-- Features Grid (Simple & Visual) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Feature 1 -->
                 <div
-                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-bolt text-4xl text-brand-accent"></i>
-                        <h4 class="text-2xl font-bold font-heading">SPEED</h4>
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-bolt text-3xl text-brand-blue"></i>
+                        <h4 class="text-xl font-bold font-heading text-brand-navy">SPEED</h4>
                     </div>
-                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
+                    <p class="text-gray-600 font-medium text-base border-l-4 border-brand-blue pl-4">
                         SEO直結の<br>圧倒的な表示速度
                     </p>
                 </div>
 
                 <!-- Feature 2 -->
                 <div
-                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-shield-alt text-4xl text-brand-accent"></i>
-                        <h4 class="text-2xl font-bold font-heading">SECURITY</h4>
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-palette text-3xl text-brand-blue"></i>
+                        <h4 class="text-xl font-bold font-heading text-brand-navy">DESIGN</h4>
                     </div>
-                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
-                        サーバー攻撃を防ぐ<br>鉄壁のセキュリティ
+                    <p class="text-gray-600 font-medium text-base border-l-4 border-brand-blue pl-4">
+                        集客に特化した<br>「売れる」デザイン
                     </p>
                 </div>
 
                 <!-- Feature 3 -->
                 <div
-                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-palette text-4xl text-brand-accent"></i>
-                        <h4 class="text-2xl font-bold font-heading">DESIGN</h4>
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-rocket text-3xl text-brand-blue"></i>
+                        <h4 class="text-xl font-bold font-heading text-brand-navy">DELIVERY</h4>
                     </div>
-                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
-                        集客に特化した<br>「売れる」デザイン
+                    <p class="text-gray-600 font-medium text-base border-l-4 border-brand-blue pl-4">
+                        お待たせしません<br>最短2日スピード納品
                     </p>
                 </div>
 
                 <!-- Feature 4 -->
                 <div
-                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-rocket text-4xl text-brand-accent"></i>
-                        <h4 class="text-2xl font-bold font-heading">DELIVERY</h4>
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-coins text-3xl text-brand-blue"></i>
+                        <h4 class="text-xl font-bold font-heading text-brand-navy">COST</h4>
                     </div>
-                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
-                        お待たせしません<br>最短2日スピード納品
-                    </p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div
-                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300 md:col-span-2 lg:col-span-1">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fas fa-coins text-4xl text-brand-accent"></i>
-                        <h4 class="text-2xl font-bold font-heading">COST</h4>
-                    </div>
-                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
-                        初期費用0円<br>月額5,000円〜
+                    <p class="text-gray-600 font-medium text-base border-l-4 border-brand-blue pl-4">
+                        月額5,000円のみ<br>これだけでOK!
                     </p>
                 </div>
             </div>
@@ -441,7 +429,7 @@
                         </div>
                         <h3 class="text-2xl md:text-3xl font-bold mb-6 leading-tight">
                             「桜並木駅前整骨院」様<br>
-                            HPリニューアルで集客4倍増
+                            オープンからWeb予約80件
                         </h3>
 
                         <!-- Testimonial Box -->
@@ -454,7 +442,7 @@
                                     <p class="text-gray-300 text-sm leading-relaxed mb-3 italic">
                                         「以前のHPでは集客が伸び悩み、正直Web集客は諦めかけていました。
                                         しかし、山﨑さんに頼んで本当に良かったです。
-                                        リニューアル初月から80件の予約が入った時は目を疑いました。
+                                        オープン初月から80件の予約が入った時は目を疑いました。
                                         今では安定して毎月20名以上の新規患者様が来てくれています。」
                                     </p>
                                     <div class="font-bold text-white text-sm">桜並木駅前整骨院 院長</div>
