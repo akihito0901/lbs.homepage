@@ -260,22 +260,36 @@
         </div>
     </section>
 
-    <!-- Features (Sticky Stacking Cards) -->
+    <!-- Features (Sticky Stacking Cards with Video Title) -->
     <section id="features" class="py-32 bg-gray-50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-12 lg:gap-16">
                 <!-- Sticky Title (Desktop) -->
-                <div class="lg:col-span-4 mb-16 lg:mb-0">
-                    <div class="sticky top-32">
-                        <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-4 text-sm">WHY CHOOSE US</h2>
-                        <h3 class="text-4xl md:text-5xl font-heading font-black text-gray-900 leading-tight mb-8">
-                            選ばれる<br>理由。
-                        </h3>
-                        <p class="text-gray-500 leading-relaxed">
-                            LBS WEBが選ばれるのには、<br>
-                            明確な理由があります。<br>
-                            他社とは違う、<br>圧倒的な強みをご紹介します。
-                        </p>
+                <div class="lg:col-span-4 mb-16 lg:mb-0 relative">
+                    <div
+                        class="sticky top-32 rounded-3xl overflow-hidden shadow-2xl h-[400px] flex items-center justify-center relative">
+                        <!-- Video Background -->
+                        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                            <source src="assets/feature-bg.mp4" type="video/mp4">
+                        </video>
+                        <!-- Dark Overlay -->
+                        <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+                        <!-- Centered Content -->
+                        <div class="relative z-20 text-center p-6 w-full">
+                            <h2
+                                class="text-brand-accent font-bold tracking-widest uppercase mb-4 text-sm animate-pulse">
+                                WHY CHOOSE US</h2>
+                            <h3
+                                class="text-4xl md:text-5xl font-heading font-black text-white leading-tight mb-6 drop-shadow-lg">
+                                選ばれる<br>理由。
+                            </h3>
+                            <p class="text-gray-200 leading-relaxed text-sm font-medium">
+                                LBS WEBが選ばれるのには、<br>
+                                明確な理由があります。<br>
+                                他社とは違う、<br>圧倒的な強みをご紹介します。
+                            </p>
+                        </div>
                     </div>
                 </div>
 
