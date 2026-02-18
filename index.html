@@ -136,16 +136,8 @@
                 丸投げでプロ級のWebサイトが完成します。
             </p>
 
-            <div class="mt-8 md:mt-10 flex justify-center gap-4 flex-col sm:flex-row">
-                <a href="#contact"
-                    class="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-bold text-base md:text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition transform flex items-center justify-center gap-2">
-                    <i class="fab fa-line text-xl md:text-2xl"></i> 今すぐ問い合わせ
-                </a>
-                <a href="#features"
-                    class="px-6 py-3 md:px-8 md:py-4 bg-transparent border-2 border-white/30 text-white rounded-full font-bold text-base md:text-lg hover:bg-white/10 transition flex items-center justify-center">
-                    詳しく見る <i class="fas fa-chevron-down ml-2 text-xs md:text-sm"></i>
-                </a>
-            </div>
+            <!-- CTA Removed -->
+            <div class="mt-8 md:mt-12"></div>
 
             <!-- Badges -->
             <div class="mt-12 md:mt-16 flex flex-wrap justify-center gap-4 md:gap-6">
@@ -190,47 +182,59 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-3">CONCERNS</h2>
-                <h3 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">こんなお悩みありませんか？</h3>
+                <h3 class="text-2xl md:text-3xl font-heading font-bold text-gray-900 leading-normal">
+                    こんなお悩み、<br class="md:hidden">ありませんか？
+                </h3>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Concern 1: Meetings (First) -->
                 <div
-                    class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center relative overflow-hidden group hover:shadow-md transition">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-blue transition">
+                    class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-pink-500 relative overflow-hidden group hover:-translate-y-2 transition duration-300">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-comments text-6xl text-pink-500"></i>
                     </div>
-                    <div
-                        class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 group-hover:text-brand-blue group-hover:bg-blue-50 transition">
-                        <i class="fas fa-money-bill-wave text-3xl"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-3">初期費用が高い</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        制作会社に見積もりをとったら30万〜50万円。「とりあえず」で始めるには高すぎる...
-                    </p>
-                </div>
-                <div
-                    class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center relative overflow-hidden group hover:shadow-md transition">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-blue transition">
-                    </div>
-                    <div
-                        class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 group-hover:text-brand-blue group-hover:bg-blue-50 transition">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6 text-pink-500">
                         <i class="fas fa-comments text-3xl"></i>
                     </div>
-                    <h4 class="font-bold text-lg mb-3">打ち合わせが面倒</h4>
+                    <h4 class="font-bold text-xl mb-3 text-gray-800">打ち合わせが<br>面倒・怖い</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        対面の打ち合わせは時間も取られるし、専門用語も多くて何だか怖いし面倒くさい...
+                        「専門用語で捲し立てられたらどうしよう...」<br>
+                        「忙しいのに時間の調整が大変...」<br>
+                        そんな不安、一切不要です。
                     </p>
                 </div>
+
+                <!-- Concern 2: Cost -->
                 <div
-                    class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center relative overflow-hidden group hover:shadow-md transition">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-blue transition">
+                    class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-blue-500 relative overflow-hidden group hover:-translate-y-2 transition duration-300">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-money-bill-wave text-6xl text-blue-500"></i>
+                    </div>
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-blue-500">
+                        <i class="fas fa-money-bill-wave text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-3 text-gray-800">初期費用が<br>高すぎる</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        制作費30万、50万...。<br>
+                        ビジネスを始めたばかりで、そこまでの投資は怖くてできないのが本音。
+                    </p>
+                </div>
+
+                <!-- Concern 3: Speed -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-yellow-500 relative overflow-hidden group hover:-translate-y-2 transition duration-300">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-tachometer-alt text-6xl text-yellow-500"></i>
                     </div>
                     <div
-                        class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 group-hover:text-brand-blue group-hover:bg-blue-50 transition">
+                        class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-500">
                         <i class="fas fa-tachometer-alt text-3xl"></i>
                     </div>
-                    <h4 class="font-bold text-lg mb-3">表示が遅い</h4>
+                    <h4 class="font-bold text-xl mb-3 text-gray-800">表示が遅くて<br>イライラ</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        スマホで開くと表示されるまで数秒かかる。これだけでお客様が離脱しているかも...
+                        スマホで開くのに何秒もかかる。<br>
+                        それだけで、せっかくの見込み客が<br>「戻るボタン」を押しています。
                     </p>
                 </div>
             </div>
@@ -243,70 +247,105 @@
         </div>
     </section>
 
-    <!-- Features (Video Top, Minimal Text) -->
-    <section id="features" class="relative py-20 overflow-hidden bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-            <div class="text-center mb-12">
-                <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-3 text-sm">WHY CHOOSE US</h2>
-                <h3 class="text-3xl md:text-5xl font-heading font-black text-gray-900 drop-shadow-sm">選ばれる理由</h3>
-            </div>
-
-            <!-- Video at Top (Content) -->
-            <div class="mb-16 rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-100">
-                <video autoplay muted loop playsinline class="w-full h-auto object-cover">
-                    <source src="assets/features-bg.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-            <!-- Features Grid (Simple & Visual) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature 1 -->
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-bolt text-3xl text-brand-blue"></i>
-                        <h4 class="text-xl font-bold font-heading text-brand-navy">SPEED</h4>
+    <!-- Features (Sticky Stacking Cards) -->
+    <section id="features" class="py-32 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16">
+                <!-- Sticky Title (Desktop) -->
+                <div class="lg:col-span-4 mb-16 lg:mb-0">
+                    <div class="sticky top-32">
+                        <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-4 text-sm">WHY CHOOSE US</h2>
+                        <h3 class="text-4xl md:text-5xl font-heading font-black text-gray-900 leading-tight mb-8">
+                            選ばれる<br>理由。
+                        </h3>
+                        <p class="text-gray-500 leading-relaxed">
+                            LBS WEBが選ばれるのには、<br>
+                            明確な理由があります。<br>
+                            他社とは違う、<br>圧倒的な強みをご紹介します。
+                        </p>
                     </div>
-                    <p class="text-gray-600 font-medium text-base border-l-4 border-brand-blue pl-4">
-                        SEO直結の<br>圧倒的な表示速度
-                    </p>
                 </div>
 
-                <!-- Feature 2 -->
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-palette text-3xl text-brand-blue"></i>
-                        <h4 class="text-xl font-bold font-heading text-brand-navy">DESIGN</h4>
+                <!-- Stacking Cards -->
+                <div class="lg:col-span-8 space-y-20">
+                    <!-- Card 1: SPEED -->
+                    <div
+                        class="sticky top-24 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
+                        <div class="flex items-start gap-6">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-brand-blue">
+                                <i class="fas fa-bolt text-3xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">SPEED</h4>
+                                <h5 class="text-xl font-bold mb-4 border-l-4 border-brand-blue pl-4">SEO直結の圧倒的な表示速度</h5>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Googleが最重要視する「ページの表示速度」を徹底的に最適化。<br>
+                                    0.1秒の遅れも許さない高速設計で、ユーザーの離脱を防ぎ、検索順位アップに貢献します。
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-600 font-medium text-base border-l-4 border-brand-blue pl-4">
-                        集客に特化した<br>「売れる」デザイン
-                    </p>
-                </div>
 
-                <!-- Feature 3 -->
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-rocket text-3xl text-brand-blue"></i>
-                        <h4 class="text-xl font-bold font-heading text-brand-navy">DELIVERY</h4>
+                    <!-- Card 2: DESIGN -->
+                    <div
+                        class="sticky top-28 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
+                        <div class="flex items-start gap-6">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-500">
+                                <i class="fas fa-palette text-3xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">DESIGN</h4>
+                                <h5 class="text-xl font-bold mb-4 border-l-4 border-pink-500 pl-4">集客に特化した「売れる」デザイン</h5>
+                                <p class="text-gray-600 leading-relaxed">
+                                    ただ綺麗なだけではありません。<br>
+                                    「誰に」「何を」伝え、どう行動してもらうか。<br>
+                                    マーケティング視点に基づいた、成果の出るデザインを提供します。
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-600 font-medium text-base border-l-4 border-brand-blue pl-4">
-                        お待たせしません<br>最短2日スピード納品
-                    </p>
-                </div>
 
-                <!-- Feature 4 -->
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-coins text-3xl text-brand-blue"></i>
-                        <h4 class="text-xl font-bold font-heading text-brand-navy">COST</h4>
+                    <!-- Card 3: DELIVERY -->
+                    <div
+                        class="sticky top-32 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
+                        <div class="flex items-start gap-6">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-500">
+                                <i class="fas fa-rocket text-3xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">DELIVERY</h4>
+                                <h5 class="text-xl font-bold mb-4 border-l-4 border-yellow-500 pl-4">最短2日のスピード納品</h5>
+                                <p class="text-gray-600 leading-relaxed">
+                                    「今すぐ始めたい」その熱量を逃しません。<br>
+                                    ご依頼から最短2日で納品可能。<br>
+                                    ビジネスの立ち上げを最速でサポートします。
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-gray-600 font-medium text-base border-l-4 border-brand-blue pl-4">
-                        月額5,000円のみ<br>これだけでOK!
-                    </p>
+
+                    <!-- Card 4: COST -->
+                    <div
+                        class="sticky top-36 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
+                        <div class="flex items-start gap-6">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-500">
+                                <i class="fas fa-coins text-3xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">COST</h4>
+                                <h5 class="text-xl font-bold mb-4 border-l-4 border-green-500 pl-4">月額5,000円のみ</h5>
+                                <p class="text-gray-600 leading-relaxed">
+                                    初期費用0円、サーバー代・ドメイン代も込み。<br>
+                                    月額5,000円（税込5,500円）以外の費用は一切かかりません。<br>
+                                    リスクゼロで、プロ級のWebサイトが手に入ります。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -329,9 +368,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Section Header -->
             <div class="text-center mb-20">
-                <span class="text-brand-gold font-bold tracking-widest uppercase text-sm">PROVEN TRACK RECORD</span>
+                <span class="text-brand-gold font-bold tracking-widest uppercase text-sm">PRODUCTION ACHIEVEMENTS</span>
                 <h2 class="text-3xl md:text-5xl font-heading font-black mt-2 drop-shadow-lg">
-                    「選ばれる」には<br class="md:hidden">理由がある。
+                    制作実績多数
                 </h2>
                 <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
                     単なる制作会社ではありません。<br>
@@ -453,22 +492,7 @@
                 </div>
             </div>
 
-            <!-- Profile Summary (Mini) -->
-            <div class="mt-32 pt-16 border-t border-white/10 text-center">
-                <div
-                    class="inline-flex items-center gap-6 justify-center bg-white/5 rounded-full px-8 py-4 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition">
-                    <img src="assets/profile.png" alt="Yamasaki Akihito"
-                        class="w-12 h-12 rounded-full border border-white/20">
-                    <div class="text-left">
-                        <div class="text-xs text-gray-400 uppercase tracking-wider">Representative</div>
-                        <div class="font-bold text-lg">YAMASAKI AKIHITO</div>
-                    </div>
-                    <div class="pl-6 border-l border-white/10 flex gap-4 text-gray-400">
-                        <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
-                    </div>
-                </div>
-            </div>
+            <!-- Profile Summary Removed (Moved to dedicated section) -->
         </div>
     </section>
 
@@ -560,67 +584,112 @@
                     スピードと質を両立
                 </h3>
             </div>
+        </div>
+    </section>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Step 1 -->
-                <div
-                    class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
-                    <div class="p-8 text-center">
-                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-file-signature text-4xl text-brand-blue"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-4">お問い合わせ・<br>ヒアリング</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            LINEまたはフォームよりご連絡ください。事業内容やイメージカラーなどをお伺いします。
-                        </p>
-                    </div>
-                    <div class="bg-gray-900 text-white py-3 text-center text-xs font-bold tracking-wider">
-                        STEP 1
+    <!-- Representative Profile -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden md:flex">
+                <div class="md:w-1/3 bg-brand-navy relative min-h-[300px] md:min-h-0">
+                    <img src="assets/profile.png" alt="Yamasaki Akihito"
+                        class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-overlay">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <p class="text-brand-accent font-bold tracking-widest text-xs mb-1">REPRESENTATIVE</p>
+                        <h3 class="text-2xl font-bold font-heading">山﨑 明仁</h3>
+                        <p class="text-gray-400 text-sm">YAMASAKI AKIHITO</p>
                     </div>
                 </div>
-
-                <!-- Step 2 -->
-                <div
-                    class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
-                    <div class="p-8 text-center">
-                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-laptop-code text-4xl text-brand-blue"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-4">デモサイト<br>作成・確認</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            頂いた情報をもとに、プロトタイプを作成します。この段階でデザインをご確認いただきます。
-                        </p>
-                    </div>
-                    <div class="bg-gray-900 text-white py-3 text-center text-xs font-bold tracking-wider">
-                        最短 1日後
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div
-                    class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
-                    <div class="p-8 text-center">
-                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-rocket text-4xl text-brand-blue"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-4">公開・<br>納品</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            修正を経て、本番環境へ公開します。余計な手続きはなく、すぐに集客を開始できます。
-                        </p>
-                    </div>
-                    <div class="bg-brand-accent text-white py-3 text-center text-xs font-bold tracking-wider">
-                        最短 2日後 (納品)
+                <div class="md:w-2/3 p-8 md:p-12">
+                    <h3 class="text-2xl font-bold text-brand-navy mb-6">
+                        「集客できるサイト」を、<br>
+                        もっと身近に。
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Web制作会社の中には、高額なだけで「作って終わり」の業者が多すぎると感じています。<br><br>
+                        私は自社でWebサービスを開発し、メディアを運営し、実店舗の集客も行ってきました。
+                        その中で培った「本当に効果のあるノウハウ」を、個人事業主や中小企業の皆様に安価で提供したい。<br>
+                        そんな想いで、この「LBS WEB」を立ち上げました。<br><br>
+                        面倒なことは全て丸投げしてください。
+                        あなたのビジネスの加速を、Webの力で全力サポートします。
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="flex items-center gap-2 text-gray-500 hover:text-pink-500 transition">
+                            <i class="fab fa-instagram text-2xl"></i>
+                            <span class="font-bold text-sm">Instagram</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-2 text-gray-500 hover:text-black transition">
+                            <i class="fab fa-tiktok text-2xl"></i>
+                            <span class="font-bold text-sm">TikTok</span>
+                        </a>
                     </div>
                 </div>
-            </div>
-
-            <div class="mt-16 text-center">
-                <a href="#contact"
-                    class="inline-block bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-2xl py-4 px-12 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition transform">
-                    フォームで無料相談・資料請求 <i class="fas fa-arrow-right ml-2"></i>
-                </a>
             </div>
         </div>
+    </section>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div
+            class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
+            <div class="p-8 text-center">
+                <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-file-signature text-4xl text-brand-blue"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-4">お問い合わせ・<br>ヒアリング</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    LINEまたはフォームよりご連絡ください。事業内容やイメージカラーなどをお伺いします。
+                </p>
+            </div>
+            <div class="bg-gray-900 text-white py-3 text-center text-xs font-bold tracking-wider">
+                STEP 1
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div
+            class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
+            <div class="p-8 text-center">
+                <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-laptop-code text-4xl text-brand-blue"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-4">デモサイト<br>作成・確認</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    頂いた情報をもとに、プロトタイプを作成します。この段階でデザインをご確認いただきます。
+                </p>
+            </div>
+            <div class="bg-gray-900 text-white py-3 text-center text-xs font-bold tracking-wider">
+                最短 1日後
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div
+            class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
+            <div class="p-8 text-center">
+                <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-rocket text-4xl text-brand-blue"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-4">公開・<br>納品</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    修正を経て、本番環境へ公開します。余計な手続きはなく、すぐに集客を開始できます。
+                </p>
+            </div>
+            <div class="bg-brand-accent text-white py-3 text-center text-xs font-bold tracking-wider">
+                最短 2日後 (納品)
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-16 text-center">
+        <a href="#contact"
+            class="inline-block bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-2xl py-4 px-12 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition transform">
+            フォームで無料相談・資料請求 <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    </div>
+    </div>
     </section>
 
     <!-- CTA / Contact -->
