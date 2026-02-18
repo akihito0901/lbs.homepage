@@ -70,7 +70,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <img src="assets/logo.png" alt="LBS WEB" class="h-10 w-auto">
+                    <img src="assets/logo.png?v=3" alt="LBS WEB" class="h-10 w-auto">
                 </div>
 
                 <!-- Desktop Menu -->
@@ -189,56 +189,72 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Concern 1: Meetings (First) -->
-                <div
-                    class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-pink-500 relative overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="absolute top-0 right-0 p-4 opacity-10">
-                        <i class="fas fa-comments text-6xl text-pink-500"></i>
+                <div class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-100">
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-2xl transition duration-500 h-full flex flex-col items-center text-center">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-pink-50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
+                        </div>
+                        <!-- Image Container -->
+                        <div
+                            class="w-40 h-40 mb-6 relative z-10 transform group-hover:scale-105 transition duration-500">
+                            <img src="assets/concern-meetings.png" alt="打ち合わせが面倒"
+                                class="w-full h-full object-contain filter drop-shadow-md">
+                        </div>
+                        <h4 class="font-bold text-2xl mb-4 text-gray-800 relative z-10">打ち合わせが<br><span
+                                class="text-pink-500">面倒・怖い</span></h4>
+                        <p class="text-gray-600 leading-relaxed text-sm relative z-10">
+                            「専門用語で捲し立てられたらどうしよう...」<br>
+                            「忙しいのに時間の調整が大変...」<br>
+                            そんな不安や手間は、一切不要です。
+                        </p>
                     </div>
-                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6 text-pink-500">
-                        <i class="fas fa-comments text-3xl"></i>
-                    </div>
-                    <h4 class="font-bold text-xl mb-3 text-gray-800">打ち合わせが<br>面倒・怖い</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        「専門用語で捲し立てられたらどうしよう...」<br>
-                        「忙しいのに時間の調整が大変...」<br>
-                        そんな不安、一切不要です。
-                    </p>
                 </div>
 
                 <!-- Concern 2: Cost -->
-                <div
-                    class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-blue-500 relative overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="absolute top-0 right-0 p-4 opacity-10">
-                        <i class="fas fa-money-bill-wave text-6xl text-blue-500"></i>
+                <div class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-200">
+                    <div
+                        class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-2xl transition duration-500 h-full flex flex-col items-center text-center">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
+                        </div>
+                        <!-- Image Container -->
+                        <div
+                            class="w-40 h-40 mb-6 relative z-10 transform group-hover:scale-105 transition duration-500">
+                            <img src="assets/concern-cost.png" alt="初期費用が高い"
+                                class="w-full h-full object-contain filter drop-shadow-md">
+                        </div>
+                        <h4 class="font-bold text-2xl mb-4 text-gray-800 relative z-10">初期費用が<br><span
+                                class="text-brand-blue">高すぎる</span></h4>
+                        <p class="text-gray-600 leading-relaxed text-sm relative z-10">
+                            制作費30万、50万...。<br>
+                            ビジネスを始めたばかりで、そこまでの投資は怖くてできないのが本音。
+                        </p>
                     </div>
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-blue-500">
-                        <i class="fas fa-money-bill-wave text-3xl"></i>
-                    </div>
-                    <h4 class="font-bold text-xl mb-3 text-gray-800">初期費用が<br>高すぎる</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        制作費30万、50万...。<br>
-                        ビジネスを始めたばかりで、そこまでの投資は怖くてできないのが本音。
-                    </p>
                 </div>
 
                 <!-- Concern 3: Speed -->
-                <div
-                    class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-yellow-500 relative overflow-hidden group hover:-translate-y-2 transition duration-300">
-                    <div class="absolute top-0 right-0 p-4 opacity-10">
-                        <i class="fas fa-tachometer-alt text-6xl text-yellow-500"></i>
-                    </div>
+                <div class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-300">
                     <div
-                        class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-500">
-                        <i class="fas fa-tachometer-alt text-3xl"></i>
+                        class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 relative overflow-hidden group hover:-translate-y-2 hover:shadow-2xl transition duration-500 h-full flex flex-col items-center text-center">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
+                        </div>
+                        <!-- Image Container -->
+                        <div
+                            class="w-40 h-40 mb-6 relative z-10 transform group-hover:scale-105 transition duration-500">
+                            <img src="assets/concern-speed.png" alt="表示速度が遅い"
+                                class="w-full h-full object-contain filter drop-shadow-md">
+                        </div>
+                        <h4 class="font-bold text-2xl mb-4 text-gray-800 relative z-10">表示が遅くて<br><span
+                                class="text-yellow-500">イライラ</span></h4>
+                        <p class="text-gray-600 leading-relaxed text-sm relative z-10">
+                            スマホで開くのに何秒もかかる。<br>
+                            それだけで、せっかくの見込み客が<br>「戻るボタン」を押しています。
+                        </p>
                     </div>
-                    <h4 class="font-bold text-xl mb-3 text-gray-800">表示が遅くて<br>イライラ</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        スマホで開くのに何秒もかかる。<br>
-                        それだけで、せっかくの見込み客が<br>「戻るボタン」を押しています。
-                    </p>
                 </div>
             </div>
-
             <div class="text-center mt-12">
                 <i class="fas fa-arrow-down text-3xl text-brand-blue animate-bounce"></i>
                 <p class="mt-4 text-xl font-bold text-brand-navy">その悩み、<span class="text-brand-blue text-2xl">LBS
@@ -759,7 +775,37 @@
         </div>
     </footer>
 
+    <!-- Scroll Animation & Scripts -->
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-8', 'translate-y-12');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                    } else {
+                        // Re-trigger animation on scroll out/in
+                        entry.target.classList.add('opacity-0');
+                        if (entry.target.dataset.staggerIndex) {
+                            entry.target.classList.add('translate-y-12');
+                        } else {
+                            entry.target.classList.add('translate-y-8');
+                        }
+                        entry.target.classList.remove('opacity-100', 'translate-y-0');
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            animatedElements.forEach((el, index) => {
+                if (el.parentElement.classList.contains('grid')) {
+                    el.dataset.staggerIndex = index % 3;
+                }
+                observer.observe(el);
+            });
+        });
+
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
