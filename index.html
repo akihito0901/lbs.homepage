@@ -70,7 +70,7 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <img src="assets/logo.png?v=3" alt="LBS WEB" class="h-10 w-auto">
+                    <img src="assets/logo.png?v=4" alt="LBS WEB" class="h-10 w-auto">
                 </div>
 
                 <!-- Desktop Menu -->
@@ -260,117 +260,111 @@
         </div>
     </section>
 
-    <!-- Features (Sticky Stacking Cards with Video Title) -->
-    <section id="features" class="py-32 bg-gray-50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-16">
-                <!-- Sticky Title (Desktop) -->
-                <div class="lg:col-span-4 mb-16 lg:mb-0 relative">
-                    <div
-                        class="sticky top-32 rounded-3xl overflow-hidden shadow-2xl h-[400px] flex items-center justify-center relative">
-                        <!-- Video Background -->
-                        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-                            <source src="assets/feature-bg.mp4" type="video/mp4">
-                        </video>
-                        <!-- Dark Overlay -->
-                        <div class="absolute inset-0 bg-black/50 z-10"></div>
+    <!-- Features (Full Width Video Title + Cards) -->
+    <section id="features" class="bg-gray-50 relative pb-32">
 
-                        <!-- Centered Content -->
-                        <div class="relative z-20 text-center p-6 w-full">
-                            <h2
-                                class="text-brand-accent font-bold tracking-widest uppercase mb-4 text-sm animate-pulse">
-                                WHY CHOOSE US</h2>
-                            <h3
-                                class="text-4xl md:text-5xl font-heading font-black text-white leading-tight mb-6 drop-shadow-lg">
-                                選ばれる<br>理由。
-                            </h3>
-                            <p class="text-gray-200 leading-relaxed text-sm font-medium">
-                                LBS WEBが選ばれるのには、<br>
-                                明確な理由があります。<br>
-                                他社とは違う、<br>圧倒的な強みをご紹介します。
+        <!-- Full Width Video Title Section -->
+        <div class="relative w-full h-[500px] flex items-center justify-center overflow-hidden mb-24">
+            <!-- Video Background -->
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                <source src="assets/feature-bg.mp4" type="video/mp4">
+            </video>
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+            <!-- Centered Content -->
+            <div class="relative z-20 text-center px-4 w-full max-w-4xl mx-auto">
+                <h2
+                    class="text-brand-accent font-bold tracking-widest uppercase mb-6 text-sm md:text-base animate-pulse">
+                    WHY CHOOSE US</h2>
+                <h3 class="text-5xl md:text-7xl font-heading font-black text-white leading-tight mb-8 drop-shadow-2xl">
+                    選ばれる理由。
+                </h3>
+                <p class="text-gray-200 leading-relaxed text-base md:text-xl font-medium max-w-2xl mx-auto">
+                    LBS WEBが選ばれるのには、明確な理由があります。<br>
+                    他社とは違う、圧倒的な強みをご紹介します。
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Stacking Cards (Centered Layout) -->
+            <div class="max-w-4xl mx-auto space-y-24">
+                <!-- Card 1: SPEED -->
+                <div
+                    class="sticky top-24 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
+                    <div class="flex items-start gap-6">
+                        <div
+                            class="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-brand-blue">
+                            <i class="fas fa-bolt text-3xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">SPEED</h4>
+                            <h5 class="text-xl font-bold mb-4 border-l-4 border-brand-blue pl-4">SEO直結の圧倒的な表示速度</h5>
+                            <p class="text-gray-600 leading-relaxed">
+                                Googleが最重要視する「ページの表示速度」を徹底的に最適化。<br>
+                                0.1秒の遅れも許さない高速設計で、ユーザーの離脱を防ぎ、検索順位アップに貢献します。
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Stacking Cards -->
-                <div class="lg:col-span-8 space-y-20">
-                    <!-- Card 1: SPEED -->
-                    <div
-                        class="sticky top-24 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-brand-blue">
-                                <i class="fas fa-bolt text-3xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">SPEED</h4>
-                                <h5 class="text-xl font-bold mb-4 border-l-4 border-brand-blue pl-4">SEO直結の圧倒的な表示速度</h5>
-                                <p class="text-gray-600 leading-relaxed">
-                                    Googleが最重要視する「ページの表示速度」を徹底的に最適化。<br>
-                                    0.1秒の遅れも許さない高速設計で、ユーザーの離脱を防ぎ、検索順位アップに貢献します。
-                                </p>
-                            </div>
+                <!-- Card 2: DESIGN -->
+                <div
+                    class="sticky top-28 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
+                    <div class="flex items-start gap-6">
+                        <div
+                            class="flex-shrink-0 w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-500">
+                            <i class="fas fa-palette text-3xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">DESIGN</h4>
+                            <h5 class="text-xl font-bold mb-4 border-l-4 border-pink-500 pl-4">集客に特化した「売れる」デザイン</h5>
+                            <p class="text-gray-600 leading-relaxed">
+                                ただ綺麗なだけではありません。<br>
+                                「誰に」「何を」伝え、どう行動してもらうか。<br>
+                                マーケティング視点に基づいた、成果の出るデザインを提供します。
+                            </p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Card 2: DESIGN -->
-                    <div
-                        class="sticky top-28 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="flex-shrink-0 w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-500">
-                                <i class="fas fa-palette text-3xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">DESIGN</h4>
-                                <h5 class="text-xl font-bold mb-4 border-l-4 border-pink-500 pl-4">集客に特化した「売れる」デザイン</h5>
-                                <p class="text-gray-600 leading-relaxed">
-                                    ただ綺麗なだけではありません。<br>
-                                    「誰に」「何を」伝え、どう行動してもらうか。<br>
-                                    マーケティング視点に基づいた、成果の出るデザインを提供します。
-                                </p>
-                            </div>
+                <!-- Card 3: DELIVERY -->
+                <div
+                    class="sticky top-32 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
+                    <div class="flex items-start gap-6">
+                        <div
+                            class="flex-shrink-0 w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-500">
+                            <i class="fas fa-rocket text-3xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">DELIVERY</h4>
+                            <h5 class="text-xl font-bold mb-4 border-l-4 border-yellow-500 pl-4">最短2日のスピード納品</h5>
+                            <p class="text-gray-600 leading-relaxed">
+                                「今すぐ始めたい」その熱量を逃しません。<br>
+                                ご依頼から最短2日で納品可能。<br>
+                                ビジネスの立ち上げを最速でサポートします。
+                            </p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Card 3: DELIVERY -->
-                    <div
-                        class="sticky top-32 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="flex-shrink-0 w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-500">
-                                <i class="fas fa-rocket text-3xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">DELIVERY</h4>
-                                <h5 class="text-xl font-bold mb-4 border-l-4 border-yellow-500 pl-4">最短2日のスピード納品</h5>
-                                <p class="text-gray-600 leading-relaxed">
-                                    「今すぐ始めたい」その熱量を逃しません。<br>
-                                    ご依頼から最短2日で納品可能。<br>
-                                    ビジネスの立ち上げを最速でサポートします。
-                                </p>
-                            </div>
+                <!-- Card 4: COST -->
+                <div
+                    class="sticky top-36 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
+                    <div class="flex items-start gap-6">
+                        <div
+                            class="flex-shrink-0 w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-500">
+                            <i class="fas fa-coins text-3xl"></i>
                         </div>
-                    </div>
-
-                    <!-- Card 4: COST -->
-                    <div
-                        class="sticky top-36 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 transition-transform duration-300">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="flex-shrink-0 w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-500">
-                                <i class="fas fa-coins text-3xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">COST</h4>
-                                <h5 class="text-xl font-bold mb-4 border-l-4 border-green-500 pl-4">月額5,000円のみ</h5>
-                                <p class="text-gray-600 leading-relaxed">
-                                    初期費用0円、サーバー代・ドメイン代も込み。<br>
-                                    月額5,000円（税込5,500円）以外の費用は一切かかりません。<br>
-                                    リスクゼロで、プロ級のWebサイトが手に入ります。
-                                </p>
-                            </div>
+                        <div>
+                            <h4 class="text-2xl font-bold font-heading text-brand-navy mb-4">COST</h4>
+                            <h5 class="text-xl font-bold mb-4 border-l-4 border-green-500 pl-4">月額5,000円のみ</h5>
+                            <p class="text-gray-600 leading-relaxed">
+                                初期費用0円、サーバー代・ドメイン代も込み。<br>
+                                月額5,000円（税込5,500円）以外の費用は一切かかりません。<br>
+                                リスクゼロで、プロ級のWebサイトが手に入ります。
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -663,11 +657,16 @@
                         SPEED DELIVERY
                     </div>
                     <!-- Responsive Typography Fix -->
-                    <h2 class="text-4xl md:text-7xl font-black font-heading leading-none mb-6 text-brand-navy">
+                    <h2 class="text-4xl md:text-7xl font-black font-heading leading-none mb-6 text-brand-navy relative">
                         <span class="block text-gray-300 text-2xl md:text-4xl mb-2">最短</span>
                         <!-- Reduced text-9xl to text-6xl on mobile -->
-                        <span class="block text-brand-blue text-7xl md:text-9xl tracking-tighter drop-shadow-sm">2
-                            DAYS</span>
+                        <div class="flex items-center gap-2">
+                            <span class="block text-brand-blue text-7xl md:text-9xl tracking-tighter drop-shadow-sm">2
+                                DAYS</span>
+                            <!-- Transparent Woman Image (Small) -->
+                            <img src="assets/delivery-uru.png" alt="Speed Icon"
+                                class="h-16 md:h-24 w-auto object-contain transform translate-y-2 opacity-90">
+                        </div>
                         <span class="block text-2xl md:text-4xl mt-2 font-bold tracking-wider">納品完了。</span>
                     </h2>
                     <p
@@ -684,8 +683,8 @@
                                 class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-brand-navy rounded-full text-white font-bold text-lg md:text-xl">
                                 1</div>
                             <div>
-                                <h4 class="font-bold text-brand-navy text-sm md:text-base">お問い合わせ・ヒアリング</h4>
-                                <p class="text-[10px] md:text-xs text-gray-500">事業内容やイメージカラーをお伺いします。</p>
+                                <h4 class="font-bold text-brand-navy text-sm md:text-base">フォーム入力・ヒアリング</h4>
+                                <p class="text-[10px] md:text-xs text-gray-500">フォーム入力後、チャットで完結します。</p>
                             </div>
                         </div>
                         <div
@@ -746,14 +745,14 @@
                 class="inline-flex items-center gap-3 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-2xl px-12 py-6 rounded-full shadow-lg transition transform hover:-translate-y-1 hover:shadow-xl w-full md:w-auto justify-center">
                 <i class="fab fa-line text-4xl"></i>
                 <div class="text-left leading-none">
-                    <span class="block text-xs font-normal mb-1">まずは気軽に</span>
+                    <span class="block text-xs font-normal mb-1">フォーム入力後、チャットで完結</span>
                     <span>LINEで無料相談</span>
                 </div>
             </a>
 
             <p class="mt-8 text-sm text-gray-400">
-                お電話でのお問い合わせ： <a href="tel:000-0000-0000" class="underline hover:text-white transition">000-0000-0000</a>
-                (平日 10:00-18:00)
+                ※お問い合わせはチャットのみ対応としております。<br>
+                お電話での対応は行っておりませんのでご了承ください。
             </p>
         </div>
     </section>
