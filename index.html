@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>制作費実質0円・月額5,000円の次世代HP制作 | LBS WEB</title>
+    <meta name="description" content="店舗・個人事業主様向け。初期費用無料、月額5,000円で手に入るプロ品質のホームページ。最新技術で圧倒的な表示速度とSEO対策を実現します。">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#1e3a8a', // Trust, Professional
+                            blue: '#2563eb', // Primary Action
+                            light: '#eff6ff', // Background
+                            accent: '#0ea5e9', // Cyan/Tech
+                            gold: '#d97706', // Premium/Conversion
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Zen Kaku Gothic New"', '"Noto Sans JP"', 'sans-serif'],
+                        heading: ['"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-pattern {
+            background-color: #1e3a8a;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .glossy {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-700 bg-slate-50 antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span
+                        class="w-8 h-8 bg-brand-navy rounded-lg flex items-center justify-center text-white text-lg font-bold">L</span>
+                    <span class="font-heading font-bold text-xl text-brand-navy tracking-tight">LBS WEB</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-brand-blue font-medium transition">特徴</a>
+                    <a href="#price" class="text-gray-600 hover:text-brand-blue font-medium transition">料金プラン</a>
+                    <a href="#flow" class="text-gray-600 hover:text-brand-blue font-medium transition">制作の流れ</a>
+                    <a href="#contact"
+                        class="bg-brand-blue text-white px-5 py-2 rounded-full font-bold shadow-md hover:bg-brand-navy transition transform hover:-translate-y-0.5">
+                        <i class="fab fa-line mr-1"></i> 無料相談
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-navy focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">特徴</a>
+                <a href="#price"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">料金プラン</a>
+                <a href="#flow"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">制作の流れ</a>
+                <a href="#contact"
+                    class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold bg-brand-blue text-white shadow-sm">無料相談</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative hero-pattern pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden text-white">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-navy/90"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+            <div
+                class="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-accent/20 border border-brand-accent/50 text-brand-accent font-bold text-sm tracking-wide uppercase backdrop-blur-sm animate-pulse">
+                先着10社限定・制作費実質0円キャンペーン中
+            </div>
+
+            <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-tight mb-6 drop-shadow-lg">
+                そのホームページ、<br class="md:hidden" />
+                <span class="text-brand-accent">"速さ"</span>と<span class="text-brand-accent">"安さ"</span>で差をつける。<br />
+                <span class="text-2xl md:text-4xl lg:text-5xl font-bold mt-4 block">制作費0円、月額5,000円のWeb資産。</span>
+            </h1>
+
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-100 font-medium">
+                表示速度はSEOの命。最新技術(SSG)で、あなたのビジネスを加速させます。<br class="hidden md:inline" />
+                面倒な管理はすべてプロにお任せください。
+            </p>
+
+            <div class="mt-10 flex justify-center gap-4 flex-col sm:flex-row">
+                <a href="#contact"
+                    class="px-8 py-4 bg-brand-gold text-white rounded-full font-bold text-lg shadow-[0_4px_14px_0_rgba(217,119,6,0.39)] hover:bg-yellow-600 hover:shadow-[0_6px_20px_rgba(217,119,6,0.23)] hover:-translate-y-1 transition transform flex items-center justify-center gap-2">
+                    <i class="fab fa-line text-2xl"></i> 今すぐ問い合わせ
+                </a>
+                <a href="#features"
+                    class="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition flex items-center justify-center">
+                    詳しく見る <i class="fas fa-chevron-down ml-2 text-sm"></i>
+                </a>
+            </div>
+
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-center opacity-80">
+                <div class="p-2 border-r border-white/20">
+                    <div class="text-3xl font-bold font-sans">0<span class="text-sm">円</span></div>
+                    <div class="text-xs">制作費（実質）</div>
+                </div>
+                <div class="p-2 border-r border-white/20">
+                    <div class="text-3xl font-bold font-sans">2<span class="text-sm">日</span></div>
+                    <div class="text-xs">最短納品</div>
+                </div>
+                <div class="p-2 border-r border-white/20">
+                    <div class="text-3xl font-bold font-sans">100<span class="text-sm">点</span></div>
+                    <div class="text-xs">Google PageSpeed</div>
+                </div>
+                <div class="p-2">
+                    <div class="text-3xl font-bold font-sans">S<span class="text-sm">級</span></div>
+                    <div class="text-xs">セキュリティ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-3">CONCERNS</h2>
+                <h3 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">こんなお悩みありませんか？</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center relative overflow-hidden group hover:shadow-md transition">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-blue transition">
+                    </div>
+                    <div
+                        class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 group-hover:text-brand-blue group-hover:bg-blue-50 transition">
+                        <i class="fas fa-money-bill-wave text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">初期費用が高い</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        制作会社に見積もりをとったら30万〜50万円。「とりあえず」で始めるには高すぎる...
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center relative overflow-hidden group hover:shadow-md transition">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-blue transition">
+                    </div>
+                    <div
+                        class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 group-hover:text-brand-blue group-hover:bg-blue-50 transition">
+                        <i class="fas fa-sync-alt text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">更新が面倒</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        本業が忙しくてブログやご案内を更新できない。パソコン作業も苦手だ...
+                    </p>
+                </div>
+                <div
+                    class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center relative overflow-hidden group hover:shadow-md transition">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gray-200 group-hover:bg-brand-blue transition">
+                    </div>
+                    <div
+                        class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 group-hover:text-brand-blue group-hover:bg-blue-50 transition">
+                        <i class="fas fa-tachometer-alt text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3">表示が遅い</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        スマホで開くと表示されるまで数秒かかる。これだけでお客様が離脱しているかも...
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <i class="fas fa-arrow-down text-3xl text-brand-blue animate-bounce"></i>
+                <p class="mt-4 text-xl font-bold text-brand-navy">その悩み、<span class="text-brand-blue text-2xl">LBS
+                        WEB</span> がすべて解決します。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+        <div
+            class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl opacity-50">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-blue font-bold tracking-widest uppercase mb-3">WHY CHOOSE US</h2>
+                <h3 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">選ばれる5つの理由</h3>
+                <p class="mt-4 text-gray-500">最新技術とマーケティング視点で、<br class="md:hidden">「勝てる」ホームページを作ります。</p>
+            </div>
+
+            <div class="space-y-24">
+                <!-- Feature 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 order-2 md:order-1">
+                        <div
+                            class="bg-gradient-to-br from-brand-navy to-brand-blue p-8 rounded-2xl shadow-xl text-white relative overflow-hidden transform md:rotate-2 hover:rotate-0 transition duration-500">
+                            <div
+                                class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl">
+                            </div>
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-6xl font-black text-white/20">01</span>
+                                <h4 class="text-2xl font-bold">圧倒的な表示速度</h4>
+                            </div>
+                            <p class="text-blue-100 leading-relaxed">
+                                最新のJamstack構成（静的サイト生成）を採用。Wordpressのような動的CMSと異なり、事前に生成されたHTMLを配信するため、爆速で表示されます。表示速度はSEO評価に直結し、ユーザーの離脱を防ぎます。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2">
+                        <h4 class="text-brand-accent font-bold mb-2">SPEED & SEO</h4>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">0.1秒の遅れも許さない。<br>Google評価を最大化。</h3>
+                        <p class="text-gray-600 leading-7">
+                            現代のユーザーは3秒待てません。LBS WEBのサイトは瞬時に表示されるため、ストレスフリーな体験を提供。検索エンジンの評価（Core Web
+                            Vitals）も最高水準を維持しやすくなります。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <h4 class="text-brand-accent font-bold mb-2">SECURITY</h4>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">鉄壁のセキュリティ。<br>ハッキングリスクほぼゼロ。</h3>
+                        <p class="text-gray-600 leading-7">
+                            サーバーレス構成のため、従来のサイトのような「データベースへの攻撃」や「プラグインの脆弱性」を突かれる心配がありません。顧客への信頼を守るためにも、セキュリティは最重要項目です。
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div
+                            class="bg-slate-800 p-8 rounded-2xl shadow-xl text-white relative overflow-hidden transform md:-rotate-2 hover:rotate-0 transition duration-500">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-6xl font-black text-white/10">02</span>
+                                <h4 class="text-2xl font-bold">サーバーレスの強み</h4>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-shield-alt text-green-400 text-xl"></i>
+                                    <span>SQLインジェクション攻撃 無効化</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                                    <span>24時間365日のDDoS対策</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-lock text-green-400 text-xl"></i>
+                                    <span>常時SSL（https）標準対応</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 order-2 md:order-1">
+                        <div
+                            class="bg-white border-2 border-brand-accent/20 p-8 rounded-2xl shadow-lg relative overflow-hidden">
+                            <i
+                                class="fas fa-mobile-alt text-brand-accent/10 text-9xl absolute bottom-0 right-0 -mb-4 -mr-4"></i>
+                            <div class="flex items-center gap-4 mb-6 relative z-10">
+                                <span class="text-6xl font-black text-brand-navy/10">03</span>
+                                <h4 class="text-2xl font-bold text-brand-navy">信頼されるUI/UX</h4>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed relative z-10">
+                                見た目だけ良いサイトは作りません。「どこに電話ボタンがあれば押されるか」「どういう構成なら信頼されるか」を徹底的に計算。マーケティング視点に基づいた、成約率（コンバージョン）の高いデザインを提供します。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2">
+                        <h4 class="text-brand-accent font-bold mb-2">QUALITY</h4>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">「売れる」デザインを<br>標準装備。</h3>
+                        <p class="text-gray-600 leading-7">
+                            奇抜なアートは不要。店舗ビジネスに必要なのは、清潔感と信頼感、そして「予約のしやすさ」です。スマホファーストで設計されたUIは、ユーザーを迷わせずゴールへ導きます。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 & 5 (Grid) -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                        <div class="text-brand-blue text-4xl mb-4"><i class="fas fa-rocket"></i></div>
+                        <h4 class="text-xl font-bold mb-2">最短2日の超速納品</h4>
+                        <p class="text-sm text-gray-600">
+                            独自の開発テンプレートとフローにより、ヒアリングから公開まで最短2日で完了。機会損失を出しません。
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                        <div class="text-brand-gold text-4xl mb-4"><i class="fas fa-tags"></i></div>
+                        <h4 class="text-xl font-bold mb-2">業界最安級の維持費</h4>
+                        <p class="text-sm text-gray-600">
+                            制作費実質0円。月額5,000円の中にドメイン・サーバー代から修正対応まで全て込み。透明性のある料金体系です。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Operator -->
+    <section class="py-20 bg-brand-navy text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3">
+                    <div class="relative">
+                        <div
+                            class="absolute inset-0 bg-brand-accent blur-3xl opacity-20 transform translate-x-4 translate-y-4">
+                        </div>
+                        <div class="relative bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 bg-gray-300 rounded-full overflow-hidden">
+                                    <!-- Placeholder for Face Icon -->
+                                    <i
+                                        class="fas fa-user text-4xl text-gray-500 w-full h-full flex items-center justify-center bg-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-brand-accent font-bold uppercase">Representive</div>
+                                    <div class="font-bold text-xl">WEB Marketer / Engineer</div>
+                                </div>
+                            </div>
+                            <p class="text-sm leading-relaxed text-gray-300 italic">
+                                「Web制作の知識だけでなく、現場で培った『集客の勝ちパターン』をすべてのサイトに標準実装します。」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-6">実績・信頼される理由</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4 p-4 border-l-4 border-brand-accent bg-white/5">
+                            <i class="fab fa-twitter text-3xl text-brand-accent"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">SNS総フォロワー 5万人</h4>
+                                <p class="text-sm text-gray-400">現役マーケターとして情報を発信。トレンドを熟知した運用スキル。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 border-l-4 border-brand-accent bg-white/5">
+                            <i class="fas fa-chart-line text-3xl text-brand-accent"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">整骨院集客 月20名安定</h4>
+                                <p class="text-sm text-gray-400">実店舗の運用代行にて、安定した新規集客を実現し続けています。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price -->
+    <section id="price" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-3">PLAN & PRICE</h2>
+                <h3 class="text-3xl md:text-4xl font-heading font-bold text-gray-900">シンプルで透明なな料金プラン</h3>
+            </div>
+
+            <div
+                class="max-w-md mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-brand-gold relative transform hover:scale-105 transition duration-300">
+                <!-- Badge -->
+                <div
+                    class="absolute top-0 right-0 bg-brand-gold text-white text-xs font-bold px-4 py-1 rounded-bl-xl shadow-md z-10">
+                    先着10社限定
+                </div>
+
+                <div class="p-8 text-center bg-gray-900 text-white">
+                    <h4 class="text-xl font-bold mb-2">スタートアッププラン</h4>
+                    <p class="text-gray-400 text-sm">必要な機能が全て揃ったオールインワン</p>
+                    <div class="mt-6 flex justify-center items-end gap-1">
+                        <div class="text-gray-400 text-lg line-through mb-2">初期費用 15万円</div>
+                        <div class="text-5xl font-black text-white">0<span class="text-2xl font-normal">円</span></div>
+                    </div>
+                    <div class="mt-2 text-brand-accent font-bold">制作費実質無料</div>
+                </div>
+
+                <div class="p-8 border-b border-gray-100">
+                    <div class="text-center mb-6">
+                        <span class="text-sm text-gray-500 font-bold block mb-1">月額管理・保守費用</span>
+                        <span class="text-4xl font-bold text-brand-navy">5,000</span><span
+                            class="text-gray-500">円</span><span class="text-xs text-gray-400">（税込5,500円）</span>
+                    </div>
+
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>モダンデザインHP制作 (Top + 下層2P)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>スマホ対応 (レスポンシブ)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>ドメイン・サーバー代 コミコミ</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>修正依頼 月2回まで無料</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>お問い合わせフォーム設置</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-8 bg-gray-50">
+                    <a href="#contact"
+                        class="block w-full py-4 rounded-xl bg-brand-gold text-white font-bold text-center shadow-lg hover:bg-yellow-600 transition">
+                        このプランで申し込む
+                    </a>
+                    <p class="text-xs text-center text-gray-400 mt-4">
+                        ※ 最低契約期間は12ヶ月となります。<br>
+                        ※ 修正はテキスト・画像の差し替えに限ります。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow -->
+    <section id="flow" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-3">FLOW</h2>
+                <h3 class="text-3xl font-bold text-gray-900">納品までの流れ</h3>
+            </div>
+
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-100 hidden md:block"></div>
+
+                <!-- Step 1 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-16">
+                    <div class="order-1 md:w-1/2 md:pr-12 md:text-right text-center mb-4 md:mb-0">
+                        <h4 class="text-xl font-bold text-brand-navy">お問い合わせ・ヒアリング</h4>
+                        <p class="text-gray-600 mt-2 text-sm">LINEまたはフォームよりご連絡ください。事業内容やイメージカラーなどをお伺いします。</p>
+                    </div>
+                    <div
+                        class="order-2 w-12 h-12 bg-brand-blue rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold z-10">
+                        1</div>
+                    <div class="order-3 md:w-1/2 md:pl-12"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-16">
+                    <div class="order-1 md:w-1/2 md:pr-12"></div>
+                    <div
+                        class="order-2 w-12 h-12 bg-brand-blue rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold z-10">
+                        2</div>
+                    <div class="order-3 md:w-1/2 md:pl-12 md:text-left text-center mt-4 md:mt-0">
+                        <h4 class="text-xl font-bold text-brand-navy">デモサイト作成</h4>
+                        <p class="text-gray-600 mt-2 text-sm">頂いた情報をもとに、プロトタイプを作成します。この段階でデザインをご確認いただきます。</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between">
+                    <div class="order-1 md:w-1/2 md:pr-12 md:text-right text-center mb-4 md:mb-0">
+                        <h4 class="text-xl font-bold text-brand-navy">公開・納品</h4>
+                        <p class="text-gray-600 mt-2 text-sm">修正を経て、本番環境へ公開します。最短でヒアリングから2日後に公開可能です。</p>
+                    </div>
+                    <div
+                        class="order-2 w-12 h-12 bg-brand-gold rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold z-10">
+                        3</div>
+                    <div class="order-3 md:w-1/2 md:pl-12"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section id="contact" class="py-24 bg-brand-navy hero-pattern text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-heading font-black mb-8 leading-tight">
+                Web集客の悩み、<br>ここで終わりにしませんか？
+            </h2>
+            <p class="text-xl text-blue-100 mb-12">
+                先着10社限定の無料キャンペーンは、<br>
+                枠が埋まり次第終了となります。<br>
+                まずは無料相談で、現状のお悩みをお聞かせください。
+            </p>
+
+            <a href="https://line.me/"
+                class="inline-flex items-center gap-3 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-2xl px-12 py-6 rounded-full shadow-lg transition transform hover:-translate-y-1 hover:shadow-xl w-full md:w-auto justify-center">
+                <i class="fab fa-line text-4xl"></i>
+                <div class="text-left leading-none">
+                    <span class="block text-xs font-normal mb-1">まずは気軽に</span>
+                    <span>LINEで無料相談</span>
+                </div>
+            </a>
+
+            <p class="mt-8 text-sm text-gray-400">
+                お電話でのお問い合わせ： <a href="tel:000-0000-0000" class="underline hover:text-white transition">000-0000-0000</a>
+                (平日 10:00-18:00)
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4 text-white">
+                        <span
+                            class="w-6 h-6 bg-brand-blue rounded flex items-center justify-center text-xs font-bold">L</span>
+                        <span class="font-bold text-lg">LBS WEB</span>
+                    </div>
+                    <p class="text-xs leading-relaxed max-w-xs">
+                        福岡を拠点に活動するWeb制作チーム。<br>
+                        「速さ」と「結果」にコミットする、<br>
+                        次世代のホームページ制作サービスです。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-brand-blue transition">特徴</a></li>
+                        <li><a href="#price" class="hover:text-brand-blue transition">料金プラン</a></li>
+                        <li><a href="#flow" class="hover:text-brand-blue transition">制作の流れ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-brand-blue transition">運営会社</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition">プライバシーポリシー</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition">特定商取引法に基づく表記</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-xs">
+                &copy; 2024 LBS WEB. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
