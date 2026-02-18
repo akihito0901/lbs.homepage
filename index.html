@@ -127,7 +127,7 @@
 
             <div class="mt-10 flex justify-center gap-4 flex-col sm:flex-row">
                 <a href="#contact"
-                    class="px-8 py-4 bg-brand-gold text-white rounded-full font-bold text-lg shadow-[0_4px_14px_0_rgba(217,119,6,0.39)] hover:bg-yellow-600 hover:shadow-[0_6px_20px_rgba(217,119,6,0.23)] hover:-translate-y-1 transition transform flex items-center justify-center gap-2">
+                    class="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-bold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition transform flex items-center justify-center gap-2">
                     <i class="fab fa-line text-2xl"></i> 今すぐ問い合わせ
                 </a>
                 <a href="#features"
@@ -136,22 +136,39 @@
                 </a>
             </div>
 
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-center opacity-80">
-                <div class="p-2 border-r border-white/20">
-                    <div class="text-3xl font-bold font-sans">0<span class="text-sm">円</span></div>
-                    <div class="text-xs">制作費（実質）</div>
+            <!-- Badges -->
+            <div class="mt-16 flex flex-wrap justify-center gap-6">
+                <!-- Badge 1 -->
+                <div class="flex flex-col items-center gap-2">
+                    <div
+                        class="w-24 h-24 rounded-full bg-brand-blue border-4 border-white/20 flex flex-col items-center justify-center shadow-lg transform hover:scale-110 transition animate-bounce-slow">
+                        <span class="text-xs font-bold">丸投げ</span>
+                        <span class="text-lg font-black">OK!</span>
+                    </div>
                 </div>
-                <div class="p-2 border-r border-white/20">
-                    <div class="text-3xl font-bold font-sans">2<span class="text-sm">日</span></div>
-                    <div class="text-xs">最短納品</div>
+                <!-- Badge 2 -->
+                <div class="flex flex-col items-center gap-2">
+                    <div
+                        class="w-24 h-24 rounded-full bg-brand-blue border-4 border-white/20 flex flex-col items-center justify-center shadow-lg transform hover:scale-110 transition">
+                        <span class="text-xs font-bold">最短2日の</span>
+                        <span class="text-sm font-black text-center leading-tight">スピード<br>納品</span>
+                    </div>
                 </div>
-                <div class="p-2 border-r border-white/20">
-                    <div class="text-3xl font-bold font-sans">100<span class="text-sm">点</span></div>
-                    <div class="text-xs">Google PageSpeed</div>
+                <!-- Badge 3 -->
+                <div class="flex flex-col items-center gap-2">
+                    <div
+                        class="w-24 h-24 rounded-full bg-brand-blue border-4 border-white/20 flex flex-col items-center justify-center shadow-lg transform hover:scale-110 transition">
+                        <span class="text-xs font-bold">業界最安</span>
+                        <span class="text-lg font-black">¥0</span>
+                    </div>
                 </div>
-                <div class="p-2">
-                    <div class="text-3xl font-bold font-sans">S<span class="text-sm">級</span></div>
-                    <div class="text-xs">セキュリティ</div>
+                <!-- Badge 4 -->
+                <div class="flex flex-col items-center gap-2">
+                    <div
+                        class="w-24 h-24 rounded-full bg-brand-blue border-4 border-white/20 flex flex-col items-center justify-center shadow-lg transform hover:scale-110 transition">
+                        <span class="text-xs font-bold">文章・画像</span>
+                        <span class="text-sm font-black text-center leading-tight">全て<br>コミコミ</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -459,52 +476,81 @@
         </div>
     </section>
 
-    <!-- Flow -->
-    <section id="flow" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Flow (Redesigned) -->
+    <section id="flow" class="py-24 relative overflow-hidden bg-slate-900 text-white">
+        <!-- Background Image overlay -->
+        <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20">
+        </div>
+        <div class="absolute inset-0 bg-brand-navy/80 mix-blend-multiply"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-brand-navy font-bold tracking-widest uppercase mb-3">FLOW</h2>
-                <h3 class="text-3xl font-bold text-gray-900">納品までのカンタンスリーステップ</h3>
+                <h2 class="text-brand-accent font-bold tracking-widest uppercase mb-3 text-xl">POINT #3</h2>
+                <h3 class="text-3xl md:text-5xl font-heading font-black text-white leading-tight">
+                    「お申込みから最短2日で納品」<br />
+                    スピードと質を両立
+                </h3>
             </div>
 
-            <div class="relative">
-                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-100 hidden md:block"></div>
-
+            <div class="grid md:grid-cols-3 gap-8">
                 <!-- Step 1 -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-16">
-                    <div class="order-1 md:w-1/2 md:pr-12 md:text-right text-center mb-4 md:mb-0">
-                        <h4 class="text-xl font-bold text-brand-navy">お問い合わせ・ヒアリング</h4>
-                        <p class="text-gray-600 mt-2 text-sm">LINEまたはフォームよりご連絡ください。事業内容やイメージカラーなどをお伺いします。</p>
+                <div
+                    class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
+                    <div class="p-8 text-center">
+                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-file-signature text-4xl text-brand-blue"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">お問い合わせ・<br>ヒアリング</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            LINEまたはフォームよりご連絡ください。事業内容やイメージカラーなどをお伺いします。
+                        </p>
                     </div>
-                    <div
-                        class="order-2 w-12 h-12 bg-brand-blue rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold z-10">
-                        1</div>
-                    <div class="order-3 md:w-1/2 md:pl-12"></div>
+                    <div class="bg-gray-900 text-white py-3 text-center text-xs font-bold tracking-wider">
+                        STEP 1
+                    </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-16">
-                    <div class="order-1 md:w-1/2 md:pr-12"></div>
-                    <div
-                        class="order-2 w-12 h-12 bg-brand-blue rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold z-10">
-                        2</div>
-                    <div class="order-3 md:w-1/2 md:pl-12 md:text-left text-center mt-4 md:mt-0">
-                        <h4 class="text-xl font-bold text-brand-navy">デモサイト作成</h4>
-                        <p class="text-gray-600 mt-2 text-sm">頂いた情報をもとに、プロトタイプを作成します。この段階でデザインをご確認いただきます。</p>
+                <div
+                    class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
+                    <div class="p-8 text-center">
+                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-laptop-code text-4xl text-brand-blue"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">デモサイト<br>作成・確認</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            頂いた情報をもとに、プロトタイプを作成します。この段階でデザインをご確認いただきます。
+                        </p>
+                    </div>
+                    <div class="bg-gray-900 text-white py-3 text-center text-xs font-bold tracking-wider">
+                        最短 1日後
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between">
-                    <div class="order-1 md:w-1/2 md:pr-12 md:text-right text-center mb-4 md:mb-0">
-                        <h4 class="text-xl font-bold text-brand-navy">公開・納品</h4>
-                        <p class="text-gray-600 mt-2 text-sm">修正を経て、本番環境へ公開します。最短でヒアリングから2日後に公開可能です。</p>
+                <div
+                    class="bg-white text-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition duration-300">
+                    <div class="p-8 text-center">
+                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-rocket text-4xl text-brand-blue"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">公開・<br>納品</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            修正を経て、本番環境へ公開します。余計な手続きはなく、すぐに集客を開始できます。
+                        </p>
                     </div>
-                    <div
-                        class="order-2 w-12 h-12 bg-brand-gold rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white font-bold z-10">
-                        3</div>
-                    <div class="order-3 md:w-1/2 md:pl-12"></div>
+                    <div class="bg-brand-accent text-white py-3 text-center text-xs font-bold tracking-wider">
+                        最短 2日後 (納品)
+                    </div>
                 </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="#contact"
+                    class="inline-block bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold text-2xl py-4 px-12 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition transform">
+                    フォームで無料相談・資料請求 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
