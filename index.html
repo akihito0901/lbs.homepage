@@ -244,263 +244,90 @@
         </div>
     </section>
 
-    <!-- Features (UR-U Style) -->
-    <section id="features" class="py-24 bg-brand-navy relative overflow-hidden">
-        <!-- Background decoration -->
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-blue rounded-full blur-3xl opacity-20">
-        </div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-brand-accent rounded-full blur-3xl opacity-20">
-        </div>
+    <!-- Features (Video Background, Minimal Text) -->
+    <section id="features" class="relative py-32 overflow-hidden text-white">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="assets/features-bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Heavy Overlay for readability -->
+        <div class="absolute inset-0 bg-black/80 z-10"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-brand-accent font-bold tracking-widest uppercase mb-3 text-lg">WHY CHOOSE US</h2>
-                <h3 class="text-3xl md:text-5xl font-heading font-black text-white">選ばれる5つの理由</h3>
-                <p class="mt-4 text-gray-400">タップして詳細を確認</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="text-center mb-20">
+                <h2 class="text-brand-accent font-bold tracking-widest uppercase mb-3 text-sm">WHY CHOOSE US</h2>
+                <h3 class="text-3xl md:text-5xl font-heading font-black text-white drop-shadow-lg">選ばれる5つの理由</h3>
             </div>
 
-            <!-- Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <!-- Features Grid (Simple & Visual) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                 <!-- Feature 1 -->
-                <button onclick="openModal('modal-1')"
-                    class="group relative aspect-square bg-brand-navy border-2 border-white/30 rounded-3xl flex flex-col items-center justify-center text-white hover:bg-brand-blue hover:border-white transition duration-300 shadow-xl overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition">
+                <div
+                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fas fa-bolt text-4xl text-brand-accent"></i>
+                        <h4 class="text-2xl font-bold font-heading">SPEED</h4>
                     </div>
-                    <h4 class="text-4xl md:text-5xl font-black mb-2 tracking-tight">SPEED</h4>
-                    <p class="text-sm md:text-base font-bold text-gray-300 group-hover:text-white">圧倒的な表示速度</p>
-                    <i
-                        class="fas fa-bolt absolute bottom-6 right-6 text-6xl text-white/5 group-hover:text-white/20 transition group-hover:scale-110"></i>
-                </button>
+                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
+                        SEO直結の<br>圧倒的な表示速度
+                    </p>
+                </div>
 
                 <!-- Feature 2 -->
-                <button onclick="openModal('modal-2')"
-                    class="group relative aspect-square bg-brand-navy border-2 border-white/30 rounded-3xl flex flex-col items-center justify-center text-white hover:bg-brand-blue hover:border-white transition duration-300 shadow-xl overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition">
+                <div
+                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fas fa-shield-alt text-4xl text-brand-accent"></i>
+                        <h4 class="text-2xl font-bold font-heading">SECURITY</h4>
                     </div>
-                    <h4 class="text-4xl md:text-5xl font-black mb-2 tracking-tight">SECURITY</h4>
-                    <p class="text-sm md:text-base font-bold text-gray-300 group-hover:text-white">鉄壁のセキュリティ</p>
-                    <i
-                        class="fas fa-shield-alt absolute bottom-6 right-6 text-6xl text-white/5 group-hover:text-white/20 transition group-hover:scale-110"></i>
-                </button>
+                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
+                        サーバー攻撃を防ぐ<br>鉄壁のセキュリティ
+                    </p>
+                </div>
 
                 <!-- Feature 3 -->
-                <button onclick="openModal('modal-3')"
-                    class="group relative aspect-square bg-brand-navy border-2 border-white/30 rounded-3xl flex flex-col items-center justify-center text-white hover:bg-brand-blue hover:border-white transition duration-300 shadow-xl overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition">
+                <div
+                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fas fa-palette text-4xl text-brand-accent"></i>
+                        <h4 class="text-2xl font-bold font-heading">DESIGN</h4>
                     </div>
-                    <h4 class="text-4xl md:text-5xl font-black mb-2 tracking-tight">DESIGN</h4>
-                    <p class="text-sm md:text-base font-bold text-gray-300 group-hover:text-white">「売れる」デザイン</p>
-                    <i
-                        class="fas fa-palette absolute bottom-6 right-6 text-6xl text-white/5 group-hover:text-white/20 transition group-hover:scale-110"></i>
-                </button>
+                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
+                        集客に特化した<br>「売れる」デザイン
+                    </p>
+                </div>
 
                 <!-- Feature 4 -->
-                <button onclick="openModal('modal-4')"
-                    class="group relative aspect-square bg-brand-navy border-2 border-white/30 rounded-3xl flex flex-col items-center justify-center text-white hover:bg-brand-blue hover:border-white transition duration-300 shadow-xl overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition">
+                <div
+                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fas fa-rocket text-4xl text-brand-accent"></i>
+                        <h4 class="text-2xl font-bold font-heading">DELIVERY</h4>
                     </div>
-                    <h4 class="text-4xl md:text-5xl font-black mb-2 tracking-tight">DELIVERY</h4>
-                    <p class="text-sm md:text-base font-bold text-gray-300 group-hover:text-white">最短2日スピード納品</p>
-                    <i
-                        class="fas fa-rocket absolute bottom-6 right-6 text-6xl text-white/5 group-hover:text-white/20 transition group-hover:scale-110"></i>
-                </button>
+                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
+                        お待たせしません<br>最短2日スピード納品
+                    </p>
+                </div>
 
                 <!-- Feature 5 -->
-                <button onclick="openModal('modal-5')"
-                    class="md:col-span-2 group relative aspect-[2/1] md:aspect-auto bg-brand-navy border-2 border-white/30 rounded-3xl flex flex-col items-center justify-center text-white hover:bg-brand-blue hover:border-white transition duration-300 shadow-xl overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition">
+                <div
+                    class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition duration-300 md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <i class="fas fa-coins text-4xl text-brand-accent"></i>
+                        <h4 class="text-2xl font-bold font-heading">COST</h4>
                     </div>
-                    <div class="relative z-10 text-center">
-                        <h4 class="text-4xl md:text-5xl font-black mb-2 tracking-tight">COST</h4>
-                        <p class="text-sm md:text-base font-bold text-gray-300 group-hover:text-white">初期費用0円・業界最安級</p>
-                    </div>
-                    <i
-                        class="fas fa-tags absolute bottom-6 right-6 text-6xl text-white/5 group-hover:text-white/20 transition group-hover:scale-110"></i>
-                </button>
+                    <p class="text-gray-300 font-medium text-lg border-l-4 border-brand-accent pl-4">
+                        初期費用0円<br>月額5,000円〜
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Modals -->
-    <!-- Modal 1: Speed -->
-    <div id="modal-1" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog"
-        aria-modal="true">
-        <div class="fixed inset-0 bg-gray-900/90 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-1')">
-        </div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                <div
-                    class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                <i class="fas fa-bolt text-brand-blue"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900" id="modal-title">SPEED - 圧倒的な表示速度</h3>
-                        </div>
-                        <div class="mt-2">
-                            <h4 class="font-bold text-brand-navy mb-2">0.1秒の遅れも許さない。</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed mb-4">
-                                最新のJamstack構成（静的サイト生成）を採用。Wordpressのような動的CMSと異なり、事前に生成されたHTMLを配信するため、爆速で表示されます。
-                            </p>
-                            <p class="text-sm text-gray-500 leading-relaxed">
-                                現代のユーザーは3秒待てません。LBS WEBのサイトは瞬時に表示されるため、ユーザーの離脱を防ぎ、GoogleのSEO評価も最大化します。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                            onclick="closeModal('modal-1')">閉じる</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Modal 2: Security -->
-    <div id="modal-2" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-gray-900/90 backdrop-blur-sm" onclick="closeModal('modal-2')"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                <div
-                    class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                <i class="fas fa-shield-alt text-brand-blue"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">SECURITY - 鉄壁の守り</h3>
-                        </div>
-                        <div class="mt-2">
-                            <h4 class="font-bold text-brand-navy mb-2">サーバーレスでハッキングを無効化</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">
-                                従来のサイトのような「データベースへの攻撃」や「プラグインの脆弱性」を突かれる心配がありません。
-                            </p>
-                            <ul class="mt-4 space-y-2 text-sm text-gray-600">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
-                                    SQLインジェクション攻撃 無効化</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
-                                    24時間365日のDDoS対策</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i>
-                                    常時SSL（https）標準対応</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                            onclick="closeModal('modal-2')">閉じる</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Modal 3: Design -->
-    <div id="modal-3" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-gray-900/90 backdrop-blur-sm" onclick="closeModal('modal-3')"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                <div
-                    class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                <i class="fas fa-palette text-brand-blue"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">DESIGN - 「売れる」デザイン</h3>
-                        </div>
-                        <div class="mt-2">
-                            <p class="text-sm text-gray-500 leading-relaxed mb-4">
-                                見た目だけ良いサイトは作りません。「どこに電話ボタンがあれば押されるか」「どういう構成なら信頼されるか」を徹底的に計算。
-                            </p>
-                            <p class="text-sm text-gray-500 leading-relaxed">
-                                マーケティング視点に基づいた、成約率（コンバージョン）の高いUI/UXデザインを標準提供します。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                            onclick="closeModal('modal-3')">閉じる</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Modal 4: Delivery -->
-    <div id="modal-4" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-gray-900/90 backdrop-blur-sm" onclick="closeModal('modal-4')"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                <div
-                    class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                <i class="fas fa-rocket text-brand-blue"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">DELIVERY - 最短2日納品</h3>
-                        </div>
-                        <div class="mt-2">
-                            <p class="text-sm text-gray-500 leading-relaxed">
-                                独自の開発テンプレートと効率化されたフローにより、ヒアリングから公開まで最短2日で完了します。
-                                ビジネスの機会損失を最小限に抑え、すぐに集客を開始できます。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                            onclick="closeModal('modal-4')">閉じる</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal 5: Cost -->
-    <div id="modal-5" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-gray-900/90 backdrop-blur-sm" onclick="closeModal('modal-5')"></div>
-        <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                <div
-                    class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div
-                                class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                <i class="fas fa-tags text-brand-blue"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">COST - 業界最安級</h3>
-                        </div>
-                        <div class="mt-2">
-                            <p class="text-sm text-gray-500 leading-relaxed">
-                                制作費実質0円。月額5,000円の中にドメイン・サーバー代から修正対応まで全て込み。
-                                追加費用の請求におびえる必要はありません。透明性のある料金体系で安心です。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                        <button type="button"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                            onclick="closeModal('modal-5')">閉じる</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Achievements & Operator -->
     <section class="py-20 bg-brand-navy text-white relative">
@@ -788,14 +615,7 @@
             menu.classList.toggle('hidden');
         });
 
-        // Modals
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-        }
 
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
     </script>
 </body>
 
