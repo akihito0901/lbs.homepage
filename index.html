@@ -110,9 +110,18 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative hero-pattern pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden text-white">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-navy/90"></div>
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section
+        class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden text-white h-[80vh] min-h-[600px] flex items-center">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="assets/hero.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-navy/90 z-20"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-30">
 
             <div
                 class="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-accent/20 border border-brand-accent/50 text-brand-accent font-bold text-sm tracking-wide uppercase backdrop-blur-sm animate-pulse">
