@@ -64,46 +64,56 @@
 
 <body class="font-sans text-gray-700 bg-slate-50 antialiased">
 
-    <!-- Header -->
-    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+    <!-- Header (Black Base, Simple & Stylish) -->
+    <header
+        class="fixed w-full z-50 transition-all duration-300 bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <img src="assets/logo.png?v=4" alt="LBS WEB" class="h-10 w-auto">
+                    <img src="assets/logo-white.png" alt="LBS WEB"
+                        class="h-8 md:h-10 w-auto opacity-90 hover:opacity-100 transition">
                 </div>
 
                 <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-600 hover:text-brand-blue font-medium transition">特徴</a>
-                    <a href="#price" class="text-gray-600 hover:text-brand-blue font-medium transition">料金プラン</a>
-                    <a href="#flow" class="text-gray-600 hover:text-brand-blue font-medium transition">制作の流れ</a>
+                <nav class="hidden md:flex items-center space-x-10">
+                    <a href="#features"
+                        class="text-sm font-medium text-gray-300 hover:text-white transition tracking-wider">特徴</a>
+                    <a href="#price"
+                        class="text-sm font-medium text-gray-300 hover:text-white transition tracking-wider">料金プラン</a>
+                    <a href="#flow"
+                        class="text-sm font-medium text-gray-300 hover:text-white transition tracking-wider">制作の流れ</a>
                     <a href="#contact"
-                        class="bg-brand-blue text-white px-5 py-2 rounded-full font-bold shadow-md hover:bg-brand-navy transition transform hover:-translate-y-0.5">
-                        <i class="fab fa-line mr-1"></i> 無料相談
+                        class="bg-white text-gray-900 px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:bg-gray-200 transition transform hover:-translate-y-0.5 tracking-wide">
+                        無料相談
                     </a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-navy focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu Panel (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800 absolute w-full shadow-xl">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#features"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">特徴</a>
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">特徴</a>
                 <a href="#price"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">料金プラン</a>
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">料金プラン</a>
                 <a href="#flow"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">制作の流れ</a>
-                <a href="#contact"
-                    class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold bg-brand-blue text-white shadow-sm">無料相談</a>
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">制作の流れ</a>
             </div>
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue
+            hover:bg-gray-50">料金プラン</a>
+            <a href="#flow"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">制作の流れ</a>
+            <a href="#contact"
+                class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold bg-brand-blue text-white shadow-sm">無料相談</a>
+        </div>
         </div>
     </header>
 
@@ -710,7 +720,7 @@
         </div>
 
         <!-- Bottom Navy Bar (Desktop Only) -->
-        <div class="absolute bottom-0 left-0 w-full h-[120px] bg-brand-navy z-0 hidden md:block"></div>
+        <!-- Bottom Navy Bar Removed -->
     </section>
 
     <!-- Representative Profile -->
