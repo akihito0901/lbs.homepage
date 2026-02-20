@@ -642,9 +642,23 @@
         </div>
 
         <!-- Group Divider Image -->
-        <div class="w-full flex justify-center mt-12 md:mt-20">
-            <img src="assets/group-divider.png" alt="Group Photo"
-                class="w-full max-w-lg md:max-w-2xl h-auto object-contain block">
+        <div class="w-full flex justify-center mt-12 md:mt-20 px-4">
+            <div class="relative inline-block w-full max-w-lg md:max-w-2xl">
+                <img src="assets/group-divider.png" alt="Happy Customer" class="w-full h-auto object-contain block">
+
+                <!-- Speech Bubble -->
+                <div
+                    class="absolute -top-6 right-4 md:top-4 md:-right-8 bg-white text-brand-navy font-black text-sm md:text-2xl px-6 py-4 md:px-8 md:py-6 rounded-3xl shadow-2xl border-4 border-brand-blue z-10 animate-fade-in-up transform rotate-2">
+                    こういうサービス<br class="md:hidden">待ってた！✨
+                    <!-- Bubble Tail -->
+                    <div
+                        class="absolute -bottom-5 left-10 md:left-16 w-0 h-0 border-l-[12px] border-l-transparent border-t-[24px] border-t-brand-blue border-r-[12px] border-r-transparent">
+                    </div>
+                    <div
+                        class="absolute -bottom-3 left-[44px] md:left-[68px] w-0 h-0 border-l-[8px] border-l-transparent border-t-[16px] border-t-white border-r-[8px] border-r-transparent z-10">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
