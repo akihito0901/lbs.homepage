@@ -127,7 +127,7 @@
         <div class="absolute inset-0 bg-black/60 z-10"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-navy/90 z-20"></div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-30 w-full">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-30 w-full pb-32 md:pb-48 lg:pb-64">
 
             <div
                 class="inline-block mb-6 px-4 py-1.5 rounded-full bg-brand-accent/20 border border-brand-accent/50 text-brand-accent font-bold text-sm tracking-wide uppercase backdrop-blur-sm animate-pulse">
@@ -183,12 +183,13 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Hero Team Image (Larger, perfectly flush bottom) -->
-            <div class="mt-12 w-full flex justify-center items-end animate-fade-in-up pointer-events-none">
-                <img src="assets/hero-divider.png" alt="LBS WEB Team"
-                    class="block w-full max-w-xl md:max-w-3xl lg:max-w-4xl h-auto object-contain object-bottom drop-shadow-2xl translate-y-[1px]">
-            </div>
+        <!-- Hero Team Image (Absolute pinned to bottom) -->
+        <div
+            class="absolute bottom-[-1px] left-0 w-full flex justify-center items-end animate-fade-in-up pointer-events-none z-20">
+            <img src="assets/hero-divider.png" alt="LBS WEB Team"
+                class="block w-full max-w-2xl md:max-w-4xl lg:max-w-5xl h-auto object-contain object-bottom drop-shadow-2xl">
         </div>
     </section>
 
