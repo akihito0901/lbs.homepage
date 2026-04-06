@@ -1,1042 +1,992 @@
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>制作費実質0円・月額5,000円の次世代HP制作 | WEB-CRAFT</title>
-    <meta name="description" content="店舗・個人事業主様向け。初期費用無料、月額5,000円で手に入るプロ品質のホームページ。最新技術で圧倒的な表示速度とSEO対策を実現します。">
-    <meta name="version" content="2.3.0-webcraft"> <!-- Force Deployment Update -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>制作費実質0円・月額5,000円の次世代HP制作 | WEB-CRAFT</title>
+  <meta name="description" content="店舗・個人事業主様向け。初期費用無料、月額5,000円で手に入るプロ品質のホームページ。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;0,800;0,900;1,800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans JP"','sans-serif'],heading:['"Plus Jakarta Sans"','"Noto Sans JP"','sans-serif']}}}}</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{overflow-x:hidden}
+    body{background:#050510;color:#fff;font-family:'Noto Sans JP',sans-serif;cursor:none}
+    section{position:relative;z-index:2}
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    /* Canvas & cursor */
+    #starfield{position:fixed;inset:0;z-index:0;pointer-events:none}
+    #cursor{position:fixed;width:10px;height:10px;background:rgba(124,58,237,0.9);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s}
+    #cursor-glow{position:fixed;width:480px;height:480px;background:radial-gradient(circle,rgba(124,58,237,.13) 0%,transparent 70%);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:1;top:0;left:0}
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kurenaido&display=swap"
-        rel="stylesheet">
+    /* Colors */
+    .gt{background:linear-gradient(135deg,#7C3AED,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gt-warm{background:linear-gradient(135deg,#F97316,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gt-cool{background:linear-gradient(135deg,#00D4FF,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gb{background:linear-gradient(135deg,#7C3AED,#EC4899)}
+    .gb-warm{background:linear-gradient(135deg,#F97316,#EC4899)}
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    /* Reveal */
+    .rv{opacity:0;transform:translateY(60px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+    .rv.fl{transform:translateX(-70px)}
+    .rv.fr{transform:translateX(70px)}
+    .rv.on{opacity:1;transform:translate(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            navy: '#155e95', // Trust, Professional (Updated to brighter blue)
-                            blue: '#2563eb', // Primary Action
-                            light: '#eff6ff', // Background
-                            accent: '#0ea5e9', // Cyan/Tech
-                            gold: '#d97706', // Premium/Conversion
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Shippori Mincho"', 'serif'],
-                        heading: ['"Shippori Mincho"', 'serif'],
-                        handwritten: ['"Zen Kurenaido"', 'sans-serif'],
-                    },
-                    animation: {
-                        'bounce-slow': 'bounce 3s infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .hero-pattern {
-            background-color: #1e3a8a;
-            /* Tech/Network abstract image */
-            background-image: linear-gradient(rgba(10, 25, 60, 0.85), rgba(10, 25, 60, 0.7)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop");
-            background-size: cover;
-            background-position: center;
-        }
+    /* Line draw */
+    .ld{height:1px;background:linear-gradient(90deg,#7C3AED,#EC4899);transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.16,1,.3,1)}
+    .ld.on{transform:scaleX(1)}
 
-        .glossy {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-    </style>
+    /* Glow divider */
+    .gdiv{height:1px;background:linear-gradient(90deg,transparent,#7C3AED 30%,#EC4899 70%,transparent);opacity:.25}
+
+    /* Orbs */
+    .orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+    @keyframes ob1{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(50px,-40px) scale(1.1)}50%{transform:translate(20px,30px) scale(.9)}75%{transform:translate(-40px,-10px) scale(1.05)}}
+    @keyframes ob2{0%,100%{transform:translate(0,0)}33%{transform:translate(-50px,30px) scale(1.08)}66%{transform:translate(35px,-25px) scale(.94)}}
+    @keyframes ob3{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,50px)}}
+
+    /* Btn glow */
+    .btn-g{position:relative;display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:700;border-radius:9999px;cursor:none;transition:transform .3s;text-decoration:none;overflow:hidden}
+    .btn-g::before{content:'';position:absolute;inset:-2px;border-radius:inherit;z-index:-1;filter:blur(18px);opacity:0;transition:opacity .4s}
+    .btn-g:hover::before{opacity:.9}
+    .btn-g:hover{transform:translateY(-3px)}
+    .btn-ga{background:linear-gradient(135deg,#7C3AED,#EC4899)}
+    .btn-ga::before{background:linear-gradient(135deg,#7C3AED,#EC4899)}
+    .btn-gb{background:linear-gradient(135deg,#F97316,#EC4899)}
+    .btn-gb::before{background:linear-gradient(135deg,#F97316,#EC4899)}
+    .btn-ol{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff;transition:all .3s;border-radius:9999px;cursor:none;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-weight:600}
+    .btn-ol:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
+
+    /* Marquee */
+    .mq-wrap{overflow:hidden}
+    .mq-inner{display:flex;width:max-content;white-space:nowrap}
+    @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .mq-inner{animation:mq 28s linear infinite}
+
+    /* Pain items */
+    .pain-row{padding:96px 0;border-top:1px solid rgba(255,255,255,.07)}
+    .pain-row:last-child{border-bottom:1px solid rgba(255,255,255,.07)}
+
+    /* Feature rows */
+    .feat-row{padding:52px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:40px}
+    .feat-row:last-child{border-bottom:1px solid rgba(255,255,255,.06)}
+
+
+    /* Price cols */
+    .price-col{padding:48px 32px;border-right:1px solid rgba(255,255,255,.08)}
+    .price-col:last-child{border-right:none}
+    .price-popular{background:linear-gradient(180deg,rgba(124,58,237,.1) 0%,rgba(236,72,153,.05) 100%);border-left:1px solid rgba(124,58,237,.3);border-right:1px solid rgba(124,58,237,.3)!important}
+
+    /* Hero overlay */
+    .hero-ov{background:radial-gradient(ellipse at 10% 50%,rgba(124,58,237,.55) 0%,transparent 50%),radial-gradient(ellipse at 90% 15%,rgba(236,72,153,.35) 0%,transparent 45%),radial-gradient(ellipse at 55% 90%,rgba(0,212,255,.2) 0%,transparent 40%),rgba(5,5,16,.83)}
+
+    /* Glass */
+    .glass{background:rgba(255,255,255,.04);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.09)}
+
+    /* Badge */
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.35);color:rgba(255,255,255,.75);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:9999px}
+
+    @keyframes ping{75%,100%{transform:scale(2);opacity:0}}
+    .animate-ping{animation:ping 1.5s cubic-bezier(0,0,.2,1) infinite}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+    .animate-bounce{animation:bounce 1.4s ease-in-out infinite}
+
+    /* Number glow */
+    .num-glow{text-shadow:0 0 40px rgba(124,58,237,.6),0 0 80px rgba(124,58,237,.3)}
+
+    /* Scroll snap for pain section on desktop */
+    @media(min-width:768px){
+      .pain-row{padding:120px 0}
+    }
+
+    /* Comparison table */
+    .cmp-row{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.06)}
+    .cmp-row:last-child{border-bottom:none}
+    .cmp-cell{padding:20px 24px}
+    @media(max-width:640px){
+      .cmp-row{grid-template-columns:1fr 1fr 1fr 1fr}
+      .cmp-cell{padding:12px 10px;font-size:11px}
+    }
+  </style>
 </head>
+<body>
 
-<body class="font-sans text-gray-700 bg-slate-50 antialiased">
+<canvas id="starfield"></canvas>
+<div id="cursor"></div>
+<div id="cursor-glow"></div>
 
-    <!-- Header (White Base, Simple & Stylish) -->
-    <header
-        class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <img src="assets/logo-webcraft.png" alt="WEB-CRAFT"
-                        class="h-20 md:h-24 w-auto transition hover:opacity-90">
-                </div>
+<!-- ══════════════════ HEADER ══════════════════ -->
+<header class="fixed w-full z-50 transition-all duration-300" id="header">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex justify-between items-center h-20">
+      <img src="assets/logo-webcraft.png" alt="WEB-CRAFT" class="h-14 md:h-16 w-auto">
+      <nav class="hidden md:flex items-center gap-10">
+        <a href="#pain" class="text-sm font-bold text-white/50 hover:text-white transition tracking-widest uppercase text-[11px]">悩み</a>
+        <a href="#features" class="text-sm font-bold text-white/50 hover:text-white transition tracking-widest uppercase text-[11px]">特徴</a>
+        <a href="#price" class="text-sm font-bold text-white/50 hover:text-white transition tracking-widest uppercase text-[11px]">料金</a>
+        <a href="#contact" class="btn-g btn-ga text-sm px-6 py-2.5 text-[13px]">無料相談</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-white/70 hover:text-white">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 absolute w-full">
+    <div class="px-5 py-4 space-y-1">
+      <a href="#pain" class="block px-3 py-2 text-white/60 hover:text-white font-bold text-sm">悩み</a>
+      <a href="#features" class="block px-3 py-2 text-white/60 hover:text-white font-bold text-sm">特徴</a>
+      <a href="#price" class="block px-3 py-2 text-white/60 hover:text-white font-bold text-sm">料金</a>
+      <a href="#contact" class="block mt-3 px-3 py-3 text-center rounded-full font-bold gb text-white text-sm">無料相談</a>
+    </div>
+  </div>
+</header>
 
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex items-center space-x-10">
-                    <a href="#features"
-                        class="text-sm font-bold text-gray-700 hover:text-brand-blue transition tracking-wider">特徴</a>
-                    <a href="#price"
-                        class="text-sm font-bold text-gray-700 hover:text-brand-blue transition tracking-wider">料金プラン</a>
-                    <a href="#flow"
-                        class="text-sm font-bold text-gray-700 hover:text-brand-blue transition tracking-wider">制作の流れ</a>
-                    <a href="#contact"
-                        class="bg-brand-navy text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:bg-brand-blue transition transform hover:-translate-y-0.5 tracking-wide">
-                        無料相談
-                    </a>
-                </nav>
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="relative min-h-screen flex items-center overflow-hidden pt-20">
+  <!-- Orbs -->
+  <div class="orb w-[600px] h-[600px] bg-purple-700/30 top-[-100px] left-[-100px]" style="animation:ob1 18s ease-in-out infinite"></div>
+  <div class="orb w-[400px] h-[400px] bg-pink-600/20 bottom-[-80px] right-[10%]" style="animation:ob2 14s ease-in-out infinite"></div>
+  <div class="orb w-[300px] h-[300px] bg-cyan-500/15 top-[30%] right-[-50px]" style="animation:ob3 20s ease-in-out infinite"></div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-800 hover:text-brand-blue focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+  <!-- Video -->
+  <video autoplay muted loop playsinline preload="none" class="absolute inset-0 w-full h-full object-cover z-0 opacity-30">
+    <source src="assets/hero2.mp4" type="video/mp4">
+  </video>
+  <div class="hero-ov absolute inset-0 z-10"></div>
+
+  <div class="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 w-full py-20 md:py-32">
+    <div class="max-w-3xl">
+      <div class="badge mb-10 rv on">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+        </span>
+        先着10社限定キャンペーン実施中
+      </div>
+
+      <h1 class="font-heading font-black tracking-tight leading-[1.08] mb-8" style="font-size:clamp(3rem,8vw,7rem)">
+        <span class="block rv on d1">プロのHPが</span>
+        <span class="block rv on d2"><span class="gt-warm">月5,000円</span>から</span>
+        <span class="block text-white/70 rv on d3" style="font-size:clamp(1.5rem,4vw,3.5rem);font-weight:700">はじめられる。</span>
+      </h1>
+
+      <p class="text-white/50 text-base md:text-lg leading-relaxed mb-12 max-w-xl rv on d3">
+        初期費用ゼロ・完全オリジナルデザイン・最短1週間納品。<br>
+        面倒なことは全部まかせて、本業に集中できます。
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-20 rv on d4">
+        <a href="#contact" class="btn-g btn-gb text-base md:text-lg px-8 py-4 gap-3">
+          <i class="fab fa-line text-2xl"></i>
+          <span>無料で相談してみる</span>
+        </a>
+        <a href="#pain" class="btn-ol text-base px-8 py-4 gap-2">
+          詳しく見る <i class="fas fa-arrow-down text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex flex-wrap gap-x-10 gap-y-6 rv on d5">
+        <div>
+          <div class="text-3xl font-heading font-black text-white">1日 <span class="gt-warm count-num" data-target="160">0</span>円〜</div>
+          <div class="text-xs text-white/30 mt-1 tracking-widest uppercase">Daily Cost</div>
         </div>
-        <!-- Mobile Menu Panel (Hidden by default) -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 absolute w-full shadow-xl">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#features"
-                    class="block px-3 py-2 rounded-md text-base font-bold text-gray-800 hover:text-brand-blue hover:bg-gray-50">特徴</a>
-                <a href="#price"
-                    class="block px-3 py-2 rounded-md text-base font-bold text-gray-800 hover:text-brand-blue hover:bg-gray-50">料金プラン</a>
-                <a href="#flow"
-                    class="block px-3 py-2 rounded-md text-base font-bold text-gray-800 hover:text-brand-blue hover:bg-gray-50">制作の流れ</a>
-                <a href="#contact"
-                    class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold bg-brand-navy text-white shadow-sm">無料相談</a>
-            </div>
+        <div class="w-px bg-white/10"></div>
+        <div>
+          <div class="text-3xl font-heading font-black text-white">最短 <span class="gt count-num" data-target="7">0</span>日</div>
+          <div class="text-xs text-white/30 mt-1 tracking-widest uppercase">Delivery</div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section
-        class="relative pt-24 pb-0 lg:pt-40 lg:pb-0 overflow-hidden text-white flex items-center min-h-[85vh] md:min-h-[95vh]">
-        <!-- Video Background -->
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-            <source src="assets/hero2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black/60 z-10"></div>
-
-        <div
-            class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-30 w-full pt-32 sm:pt-40 md:pt-40 lg:pt-44 xl:pt-48 pb-56 md:pb-72 lg:pb-80 xl:pb-[25rem]">
-
-            <h1
-                class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-black tracking-widest leading-relaxed drop-shadow-2xl text-white">
-                <span class="block mb-4 md:mb-6">プロ級ホームページが</span>
-                <span class="block mt-2 md:mt-4">1日160円〜</span>
-            </h1>
-
-            <!-- Strategy Badges (Triangular Layout) -->
-            <div class="mt-8 md:mt-10 lg:mt-12 flex flex-col items-center relative z-30">
-                <!-- Top Row (1 Badge) -->
-                <div class="flex justify-center z-30 relative">
-                    <!-- Badge 1: Design -->
-                    <div
-                        class="w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-full bg-gradient-to-br from-brand-blue to-brand-navy border-4 border-white/30 flex flex-col items-center justify-center shadow-[0_0_25px_rgba(37,99,235,0.6)] transform md:hover:scale-110 transition duration-300">
-                        <i class="fas fa-palette text-2xl md:text-3xl lg:text-4xl text-white opacity-90 mb-1"></i>
-                        <span
-                            class="text-[10px] md:text-xs lg:text-sm font-bold tracking-wider text-white mb-0.5 leading-none">オリジナル</span>
-                        <span
-                            class="text-xs md:text-base lg:text-lg font-black tracking-wider text-white leading-none">デザイン</span>
-                    </div>
-                </div>
-
-                <!-- Bottom Row (2 Badges) -->
-                <div
-                    class="flex justify-center gap-2 sm:gap-6 md:gap-8 lg:gap-10 -mt-3 sm:-mt-6 md:-mt-8 z-20 relative">
-                    <!-- Badge 2: Speed -->
-                    <div
-                        class="w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-full bg-gradient-to-br from-emerald-500 to-teal-700 border-4 border-white/30 flex flex-col items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.6)] transform md:hover:scale-110 transition duration-300">
-                        <i class="fas fa-bolt text-2xl md:text-3xl lg:text-4xl text-white opacity-90 mb-1"></i>
-                        <span
-                            class="text-[10px] md:text-xs lg:text-sm font-bold tracking-wider text-white mb-0.5 leading-none">高速表示</span>
-                        <span
-                            class="text-xs md:text-base lg:text-lg font-black tracking-wider text-white leading-none">スマホ対応</span>
-                    </div>
-
-                    <!-- Badge 3: SEO -->
-                    <div
-                        class="w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] md:w-[120px] md:h-[120px] lg:w-[130px] lg:h-[130px] rounded-full bg-gradient-to-br from-purple-500 to-indigo-700 border-4 border-white/30 flex flex-col items-center justify-center shadow-[0_0_25px_rgba(168,85,247,0.6)] transform md:hover:scale-110 transition duration-300">
-                        <i class="fas fa-search text-2xl md:text-3xl lg:text-4xl text-white opacity-90 mb-1"></i>
-                        <span
-                            class="text-[10px] md:text-xs lg:text-sm font-bold tracking-wider text-white mb-0.5 leading-none">検索に強い</span>
-                        <span
-                            class="text-xs md:text-base lg:text-lg font-black tracking-wider text-white leading-none">SEO対策</span>
-                    </div>
-                </div>
-            </div>
+        <div class="w-px bg-white/10"></div>
+        <div>
+          <div class="text-3xl font-heading font-black text-white"><span class="gt-cool">初期費用</span> ¥0</div>
+          <div class="text-xs text-white/30 mt-1 tracking-widest uppercase">Initial Cost</div>
         </div>
+      </div>
+    </div>
 
-        <!-- Hero Team Image (Absolute pinned to bottom) -->
-        <div
-            class="absolute bottom-[-1px] left-0 w-full flex justify-center items-end animate-fade-in-up pointer-events-none z-20">
-            <img src="assets/hero-team2.png" alt="LBS WEB Team"
-                class="block w-full max-w-md md:max-w-2xl lg:max-w-4xl h-auto object-contain object-bottom drop-shadow-2xl transform translate-y-4 md:translate-y-8 lg:translate-y-12">
+    <!-- Floating feature labels (desktop) -->
+    <div class="hidden lg:flex flex-col gap-5 absolute right-8 top-1/2 -translate-y-1/2 z-30">
+      <div class="glass rounded-2xl px-5 py-4 flex items-center gap-3 rv fr on d2">
+        <div class="w-9 h-9 gb rounded-xl flex items-center justify-center flex-shrink-0">
+          <i class="fas fa-palette text-white text-sm"></i>
         </div>
-    </section>
-
-    <!-- Pain Points -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h3 class="text-lg md:text-3xl font-heading font-bold text-gray-900 leading-normal">
-                    こんなお悩み<br class="md:hidden">ありませんか？
-                </h3>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Concern 1 -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-100 h-full">
-                    <div
-                        class="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center text-center h-full">
-                        <div
-                            class="w-48 h-48 sm:w-56 sm:h-56 mb-6 relative z-10 transition-transform duration-700 hover:scale-105">
-                            <img src="assets/concern-meetings.png" alt="集客できない" class="w-full h-full object-contain">
-                        </div>
-                        <h4 class="font-bold text-xl md:text-2xl mb-4 text-gray-800 relative z-10">高いお金を出したのに<br><span
-                                class="text-brand-navy">集客できない</span></h4>
-                        <p class="text-gray-600 leading-relaxed text-sm relative z-10">
-                            「数十万かけて作ったのに問い合わせゼロ...」<br>
-                            「完全に名刺代わりにしかなっていない...」<br>
-                            せっかくのHPが宝の持ち腐れ状態になっていませんか？
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Concern 2 -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-200 h-full">
-                    <div
-                        class="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center text-center h-full">
-                        <div
-                            class="w-48 h-48 sm:w-56 sm:h-56 mb-6 relative z-10 transition-transform duration-700 hover:scale-105">
-                            <img src="assets/concern-speed.png" alt="更新費用が高い" class="w-full h-full object-contain">
-                        </div>
-                        <h4 class="font-bold text-xl md:text-2xl mb-4 text-gray-800 relative z-10">少し変更するだけでも<br><span
-                                class="text-brand-blue">修正費用がかかる</span></h4>
-                        <p class="text-gray-600 leading-relaxed text-sm relative z-10">
-                            「営業時間や定休日を変えたいだけなのに...」<br>
-                            「お知らせを1件追加するだけで数千円...」<br>
-                            業者に頼むのが億劫で、情報が古くなっていませんか？
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Concern 3 -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-300 h-full">
-                    <div
-                        class="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center text-center h-full">
-                        <div
-                            class="w-48 h-48 sm:w-56 sm:h-56 mb-6 relative z-10 transition-transform duration-700 hover:scale-105">
-                            <img src="assets/concern-cost.png" alt="初期費用が払えない" class="w-full h-full object-contain">
-                        </div>
-                        <h4 class="font-bold text-xl md:text-2xl mb-4 text-gray-800 relative z-10">そもそもHPを作る<br><span
-                                class="text-brand-navy">初期費用が重い</span></h4>
-                        <p class="text-gray-600 leading-relaxed text-sm relative z-10">
-                            「とりあえず店や会社のHPは欲しいけど...」<br>
-                            「まとまった予算がないから作れない...」<br>
-                            スタートアップや個人事業主には負担が大きすぎませんか？
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <i class="fas fa-arrow-down text-3xl text-brand-blue animate-bounce"></i>
-                <p class="mt-4 text-2xl sm:text-3xl font-black text-brand-navy font-heading tracking-wide">
-                    その悩み、<span class="text-brand-blue">ウェブクラ</span>なら<br>すべて解決できます！
-                </p>
-            </div>
+        <div>
+          <div class="font-bold text-sm text-white">オリジナルデザイン</div>
+          <div class="text-white/40 text-xs">テンプレート不使用</div>
         </div>
-    </section>
-
-    <!-- Representative Profile -->
-    <section class="py-24 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
-                <!-- Image Side -->
-                <div class="md:w-5/12 relative w-full flex justify-center order-1 mt-8 md:mt-0">
-                    <!-- Deco shapes -->
-                    <div class="absolute inset-0 bg-brand-navy/5 rounded-full blur-3xl scale-110 -z-10"></div>
-                    <div class="absolute bottom-0 right-10 w-32 h-32 bg-brand-blue/10 rounded-full blur-2xl -z-10">
-                    </div>
-
-                    <img src="images/akihito-profile.png" alt="Yamasaki Akihito"
-                        class="relative z-10 w-2/3 md:w-full max-w-[240px] md:max-w-sm h-auto object-contain drop-shadow-2xl">
-
-                    <!-- Name Plate (Floating) -->
-                    <div
-                        class="absolute bottom-2 md:bottom-12 left-4 md:-left-8 bg-white/95 backdrop-blur shadow-2xl border-l-4 border-l-brand-blue p-4 md:p-8 z-20 scale-[0.85] sm:scale-95 md:scale-100 origin-bottom-left">
-                        <p
-                            class="text-brand-blue font-bold tracking-[0.2em] text-[10px] md:text-xs mb-1 md:mb-2 uppercase">
-                            製作者</p>
-                        <h3
-                            class="text-xl sm:text-2xl md:text-3xl font-bold font-heading text-brand-navy leading-none mb-1 md:mb-2">
-                            山﨑 明仁
-                        </h3>
-                        <p class="text-gray-400 text-[10px] md:text-xs tracking-[0.2em] uppercase">Yamasaki Akihito</p>
-                    </div>
-                </div>
-
-                <!-- Text Side -->
-                <div class="md:w-7/12 order-2">
-                    <h3
-                        class="text-2xl sm:text-3xl md:text-4xl font-black font-heading text-brand-navy leading-tight mb-8">
-                        「集客できるサイト」を<br>
-                        もっと身近に
-                    </h3>
-
-                    <div class="space-y-6 text-gray-600 leading-relaxed text-base md:text-lg font-medium">
-                        <p>
-                            個人事業主やスモールビジネスの皆様にとって、<span
-                                class="font-bold border-b-2 border-brand-blue/30 pb-0.5">HPにそこまで多額の費用をかける必要はありません。</span>
-                        </p>
-                        <p>
-                            最新のAIツール等を駆使して限界までコストを削減しつつも、私自信が現役のマーケターとして活動しているからこそわかる「お客様に届きやすい・見やすい」デザインにこだわっています。
-                        </p>
-                        <p>
-                            本当に大切なのは、作った後の<span
-                                class="font-bold text-brand-navy text-xl">「運用」</span>です。制作から運用まで、皆様の強い味方としてサポートし続けます。
-                        </p>
-                    </div>
-
-                    <div class="flex flex-wrap gap-8 mt-12 pt-8 border-t border-gray-100">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-brand-navy text-white flex items-center justify-center">
-                                <i class="fab fa-instagram text-2xl"></i>
-                            </div>
-                            <div class="flex flex-col">
-                                <span class="font-bold text-[10px] text-gray-400 tracking-wider">INSTAGRAM</span>
-                                <span class="font-black text-xl text-brand-navy">3.3万人</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center">
-                                <i class="fab fa-tiktok text-xl"></i>
-                            </div>
-                            <div class="flex flex-col">
-                                <span class="font-bold text-[10px] text-gray-400 tracking-wider">TIKTOK</span>
-                                <span class="font-black text-xl text-brand-navy">2.2万人</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="glass rounded-2xl px-5 py-4 flex items-center gap-3 rv fr on d3">
+        <div class="w-9 h-9 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
+          <i class="fas fa-bolt text-white text-sm"></i>
         </div>
-    </section>
-
-    <!-- Why WEB-CRAFT -->
-    <section class="py-24 bg-brand-navy hero-pattern text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-black/70 z-10"></div>
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
-
-            <h2
-                class="text-xl sm:text-2xl md:text-5xl font-heading font-black mb-6 leading-tight drop-shadow-lg scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out">
-                なぜ<span class="text-brand-accent">こんなに安く</span><br>
-                プロクオリティが<br class="md:hidden">提供できるのか？
-            </h2>
-
-            <p
-                class="text-lg md:text-2xl text-blue-100 mb-16 leading-relaxed font-bold scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-100">
-                従来の「作って終わり」の制作会社とは、仕組みが違います。
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <!-- Point 1 -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-100 h-full">
-                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 h-full">
-                        <div
-                            class="w-16 h-16 bg-brand-blue rounded-full mb-6 flex items-center justify-center border-2 border-white/50">
-                            <i class="fas fa-user-tie text-2xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">代表自ら制作</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            外注費や営業マンの人件費など、無駄な経費を徹底カット。代表自身が直接制作に携わることで、高品質でありながら低コストでの提供を実現しています。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Point 2 -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-200 h-full">
-                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 h-full">
-                        <div
-                            class="w-16 h-16 bg-emerald-500 rounded-full mb-6 flex items-center justify-center border-2 border-white/50">
-                            <i class="fas fa-robot text-2xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">最新AIツールの活用</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            AIを活用してクリーンなコードを素早く構築。表示速度の圧倒的な速さと、Googleから評価されやすい堅牢なSEO対策を同時に叶えます。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Point 3 -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-300 h-full">
-                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 h-full">
-                        <div
-                            class="w-16 h-16 bg-purple-500 rounded-full mb-6 flex items-center justify-center border-2 border-white/50">
-                            <i class="fas fa-infinity text-2xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">初期費用0円のサブスク</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            まとまった初期費用や、不明瞭な追加オプションは一切なし。月額定額で保守も修正もすべてお任せいただける、スモールビジネスに優しい料金体系です。
-                        </p>
-                    </div>
-                </div>
-            </div>
-
+        <div>
+          <div class="font-bold text-sm text-white">高速・スマホ対応</div>
+          <div class="text-white/40 text-xs">SEO最適化済み</div>
         </div>
-    </section>
-
-    <!-- Features (Full Width Video section) -->
-    <section id="features"
-        class="relative w-full min-h-[600px] md:min-h-[800px] flex items-center justify-center overflow-hidden">
-        <!-- Video Background -->
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-            <source src="assets/bg-movie.mp4" type="video/mp4">
-        </video>
-        <!-- Dark Overlay -->
-        <div class="absolute inset-0 bg-brand-navy/80 z-10 mix-blend-multiply"></div>
-        <div class="absolute inset-0 bg-black/50 z-10"></div>
-
-        <!-- Centered Content -->
-        <div class="relative z-20 text-center px-4 w-full max-w-5xl mx-auto py-24 text-white">
-            <h3
-                class="text-2xl sm:text-3xl md:text-6xl font-heading font-black leading-tight mb-16 drop-shadow-2xl scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out">
-                選ばれる理由
-            </h3>
-
-            <div
-                class="space-y-6 md:space-y-10 text-base sm:text-lg md:text-3xl font-bold tracking-[0.1em] leading-loose">
-                <p class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-100">
-                    <span class="text-brand-accent mr-2">1.</span> 初期費用ゼロ、月額定額で安心
-                </p>
-                <p class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-200">
-                    <span class="text-brand-accent mr-2">2.</span> 完全オリジナルデザイン
-                </p>
-                <p class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-300">
-                    <span class="text-brand-accent mr-2">3.</span> 修正・更新・ SEOまで全部コミコミ
-                </p>
-            </div>
+      </div>
+      <div class="glass rounded-2xl px-5 py-4 flex items-center gap-3 rv fr on d4">
+        <div class="w-9 h-9 gb-warm rounded-xl flex items-center justify-center flex-shrink-0">
+          <i class="fas fa-headset text-white text-sm"></i>
         </div>
-    </section>
-
-
-
-
-
-    <!-- Achievements & Operator (Modern Redesign) -->
-    <section class="py-24 bg-brand-navy text-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-            <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-3xl">
-            </div>
-            <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-3xl">
-            </div>
+        <div>
+          <div class="font-bold text-sm text-white">修正・更新込み</div>
+          <div class="text-white/40 text-xs">追加料金なし</div>
         </div>
+      </div>
+    </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <!-- Section Header -->
-            <div class="text-center mb-20">
-                <h2 class="text-2xl md:text-5xl font-heading font-black mt-2 drop-shadow-lg mb-8">
-                    制作実績多数
-                </h2>
-            </div>
+    <!-- Hero image -->
+    <div class="absolute bottom-0 right-4 w-2/5 max-w-md hidden md:block z-20 pointer-events-none">
+      <img src="assets/hero-team2.png" alt="WEB-CRAFT Team" class="w-full h-auto object-contain object-bottom drop-shadow-2xl">
+    </div>
+  </div>
 
-            <div class="space-y-16 md:space-y-32">
-                <!-- Case 1: Sakuranamiki (Clinic + Testimonial) -->
-                <div class="relative grid md:grid-cols-12 gap-8 items-center">
-                    <!-- Reduced from col-span-6 to col-span-5 -->
-                    <div class="md:col-span-5 relative z-10 max-w-xs sm:max-w-sm mx-auto md:max-w-none">
-                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 group relative">
-                            <img src="assets/sakuranamiki-hp.png" alt="Sakuranamiki Seitai HP"
-                                class="w-full h-auto filter brightness-75 md:group-hover:brightness-100 transition duration-500">
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div
-                                    class="bg-black/60 backdrop-blur-sm p-6 text-center transform md:group-hover:scale-110 transition duration-500 border-y-2 border-brand-gold">
-                                    <div class="text-brand-gold font-bold text-sm uppercase tracking-widest mb-1">RESULT
-                                    </div>
-                                    <div class="text-white font-black text-3xl">月間予約 80件</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Increased to col-span-7 -->
-                    <div class="md:col-span-7 md:pl-8">
-                        <h3 class="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-                            「桜並木駅前の整骨院」様<br>
-                            オープンからWeb予約80件
-                        </h3>
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/30 text-xs animate-bounce tracking-widest uppercase">
+    <span>Scroll</span>
+    <i class="fas fa-chevron-down text-xs"></i>
+  </div>
+</section>
 
-                        <!-- Testimonial Box -->
-                        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 relative">
-                            <i class="fas fa-quote-right absolute top-4 right-4 text-4xl text-white/5"></i>
-                            <div class="flex items-start gap-4">
-                                <img src="assets/sakuranamiki-director.jpg" alt="Director"
-                                    class="w-16 h-16 rounded-full border-2 border-brand-gold object-cover flex-shrink-0">
-                                <div>
-                                    <p class="text-white text-sm leading-relaxed mb-3 italic">
-                                        「今までホームページすら持っていなかったのですが、山﨑さんに依頼して本当に世界が変わりました。
-                                        現在、地域の激戦区キーワードでSEO検索順位1位を獲得し続けており、周りの競合院が全く相手にならないほど圧倒的な集客ができています。
-                                        オープン初月から80件の予約が入った時は目を疑いましたが、今では毎月安定して新規の患者様が来てくれています。完全に『作って終わり』じゃない、本当のWeb集客を体験できました。」
-                                    </p>
-                                    <div class="font-bold text-gray-300 text-sm">桜並木駅前の整骨院 院長</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="gdiv"></div>
 
-                <!-- Case 2: Kentblog (SEO) -->
-                <div class="relative grid md:grid-cols-12 gap-8 items-center">
-                    <div class="md:col-span-5 md:order-1 order-2 md:pr-8">
-                        <h3 class="text-xl sm:text-2xl md:text-4xl font-bold mb-4 leading-tight">
-                            激戦区キーワードで<br>
-                            <span class="text-brand-blue">検索1位</span>を量産
-                        </h3>
-                        <p class="text-gray-200 leading-relaxed mb-6">
-                            個人運営のテックブログ「kentblog」にて、競合の多いIT系キーワードでGoogle検索1位の記事を5本獲得（2025年12月時点）。
-                            広告費をかけずに、検索エンジンから優良な見込み客を集め続ける「SEOの仕組み」を構築します。
-                        </p>
-                    </div>
-                    <div
-                        class="md:col-span-7 md:order-2 order-1 relative max-w-[280px] sm:max-w-sm mx-auto md:max-w-none md:mx-0">
-                        <!-- Content Image -->
-                        <div
-                            class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative z-10 w-4/5 ml-auto transform transition duration-500 hover:z-30 hover:scale-105">
-                            <img src="assets/kentblog-content.png" alt="Kentblog Content" class="w-full h-auto">
-                        </div>
-                        <!-- Search Result Image (Overlay) -->
-                        <div
-                            class="absolute top-[20%] left-0 w-3/5 rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-brand-accent/30 z-20 transform -rotate-3 hover:rotate-0 transition duration-500 hover:z-40 hover:scale-105">
-                            <img src="assets/kentblog-search.png" alt="Kentblog SEO Result" class="w-full h-auto">
-                        </div>
-                    </div>
-                </div>
+<!-- ══════════════════ PAIN POINTS ══════════════════ -->
+<section id="pain" class="relative py-24 md:py-32 overflow-hidden">
+  <div class="orb w-[500px] h-[500px] bg-purple-800/20 top-0 right-[-100px]" style="animation:ob2 16s ease-in-out infinite"></div>
 
-                <!-- Case 3: Pepre Lab (Service Dev) -->
-                <div class="relative grid md:grid-cols-12 gap-8 items-center">
-                    <!-- Reduced from col-span-7 to col-span-5 for smaller image -->
-                    <div
-                        class="md:col-span-5 relative z-10 transform md:-rotate-1 md:hover:rotate-0 transition duration-500 max-w-xs sm:max-w-sm mx-auto md:max-w-none">
-                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
-                            <img src="assets/pepre-lab.png" alt="Pepre Lab Interface"
-                                class="w-full h-auto transform md:group-hover:scale-105 transition duration-700">
-                            <!-- Overlay Gradient -->
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent opacity-60">
-                            </div>
-                        </div>
-                        <!-- Floating Badge -->
-                        <div
-                            class="absolute -bottom-6 -right-6 bg-white text-brand-navy p-4 rounded-xl shadow-xl hidden md:block animate-bounce-slow">
-                            <div class="text-xs font-bold text-gray-500 uppercase">Monthly PV</div>
-                            <div class="text-2xl font-black">10,000+</div>
-                        </div>
-                    </div>
-                    <!-- Increased to col-span-7 -->
-                    <div class="md:col-span-7 md:pl-8">
-                        <h3 class="text-2xl md:text-4xl font-bold mb-4 leading-tight">
-                            愛犬家専用プラットフォーム<br>
-                            <span class="text-brand-accent">「ぺプラボ」</span>の開発・運営
-                        </h3>
-                        <p class="text-gray-200 leading-relaxed mb-6">
-                            企画・要件定義からデザイン・実装・運用まで、全ての工程をリード。
-                            ユーザー体験（UX）を徹底的に追求し、多くの愛犬家に愛されるサービスへと成長させました。
-                            この「サービス開発視点」が、御社のWebサイトにも活かされます。
-                        </p>
-                    </div>
-                </div>
-            </div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <!-- Header -->
+    <div class="mb-20 md:mb-28">
+      <span class="badge rv">こんなお悩みありませんか？</span>
+      <h2 class="font-heading font-black mt-8 rv d1" style="font-size:clamp(2.5rem,7vw,6rem);line-height:1.1">
+        HPのことで<br><span class="gt">もう悩みたくない</span>。
+      </h2>
+    </div>
 
-            <!-- Profile Summary Removed (Moved to dedicated section) -->
+    <!-- Pain 01 -->
+    <div class="pain-row">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+        <div class="rv fl">
+          <div class="font-heading font-black text-white/5 leading-none mb-4 select-none" style="font-size:clamp(5rem,12vw,10rem)">01</div>
+          <h3 class="font-heading font-black leading-tight" style="font-size:clamp(1.8rem,4.5vw,3.8rem)">
+            高いお金を出したのに、<br><span class="gt-warm">集客できない。</span>
+          </h3>
+          <div class="ld mt-6 rv on d2" style="max-width:300px"></div>
+          <p class="text-white/75 mt-5 max-w-lg text-sm leading-relaxed rv on d3">
+            数十万かけたのに問い合わせゼロ…<br>HPが名刺代わりにしかなっていませんか？
+          </p>
         </div>
-    </section>
-
-
-
-    <!-- Price (3 Tiers) -->
-    <section id="price" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-8">
-                <h3 class="text-2xl md:text-5xl font-heading font-black text-brand-navy mb-4">
-                    月額定額、<br class="md:hidden"><span class="text-brand-accent">追加料金なし。</span>
-                </h3>
-                <p class="text-gray-500 font-bold text-sm md:text-base mb-2">（初期制作費無料）</p>
-            </div>
-            <div class="text-center mb-16">
-                <p class="text-lg md:text-2xl font-black text-gray-800">
-                    プランの違いは<span class="text-brand-blue border-b-4 border-brand-blue/30 pb-1">ページ数のみ</span>。機能はすべて共通です。
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-
-                <!-- Plan 1: ライト -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-100 h-full">
-                    <div
-                        class="bg-white rounded-2xl border border-gray-200 flex flex-col h-full overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <div class="p-8 text-center bg-gray-50 border-b border-gray-100">
-                            <div
-                                class="inline-block bg-brand-blue/10 text-brand-blue font-black text-xs px-4 py-1.5 rounded-full mb-3 tracking-wider">
-                                1ページ</div>
-                            <h4 class="text-2xl font-black text-gray-700 mb-3 tracking-widest">ライト</h4>
-                            <div class="mb-1">
-                                <span class="text-gray-500 text-sm font-bold">月額</span>
-                            </div>
-                            <div class="flex justify-center items-end gap-1">
-                                <span class="text-5xl font-black text-gray-800 tracking-tight leading-none">4,900</span>
-                                <span class="text-lg font-bold text-gray-500 pb-1">円<span
-                                        class="text-xs">/月</span></span>
-                            </div>
-                            <p class="text-xs text-gray-400 mt-1">税込 5,390円</p>
-                        </div>
-                        <div class="p-8 bg-gray-50 flex-grow rounded-b-2xl">
-                            <div class="mb-6 text-center">
-                                <span
-                                    class="inline-flex items-center gap-1.5 bg-gradient-to-r from-red-50 to-orange-50 text-red-600 font-bold px-4 py-2 rounded-full text-sm shadow-sm border border-red-100">
-                                    <i class="fas fa-coins"></i> 1日あたり 約160円
-                                </span>
-                            </div>
-                            <ul class="space-y-4 text-sm text-gray-700 font-medium">
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-blue/70 text-base mt-0.5"></i><span>オリジナルデザイン制作</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-blue/70 text-base mt-0.5"></i><span>スマホ対応・高速表示</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-blue/70 text-base mt-0.5"></i><span>高度なSEO・アクセス解析</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-blue/70 text-base mt-0.5"></i><span>お問い合わせフォーム設置</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-blue/70 text-base mt-0.5"></i><span>サーバー・ドメイン管理</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-blue/70 text-base mt-0.5"></i><span><span
-                                            class="font-bold text-gray-900 border-b border-brand-accent/30">月5回</span>のテキスト・画像修正</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Plan 2: スタンダード（人気） -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-200 h-full z-10">
-                    <div
-                        class="bg-white rounded-2xl border-2 border-brand-accent flex flex-col h-full overflow-hidden relative shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                        <div
-                            class="absolute top-0 left-0 w-full bg-brand-accent text-white text-xs font-bold py-1.5 text-center tracking-widest">
-                            <i class="fas fa-crown mr-1"></i> 一番人気
-                        </div>
-                        <div class="p-8 text-center bg-white border-b border-gray-100 pt-10">
-                            <div
-                                class="inline-block bg-brand-accent/10 text-brand-accent font-black text-xs px-4 py-1.5 rounded-full mb-3 tracking-wider">
-                                2〜6ページ</div>
-                            <h4 class="text-2xl font-black text-brand-navy mb-3 tracking-widest">スタンダード</h4>
-                            <div class="mb-1">
-                                <span class="text-brand-navy text-sm font-bold">月額</span>
-                            </div>
-                            <div class="flex justify-center items-end gap-1">
-                                <span
-                                    class="text-5xl font-black text-brand-navy tracking-tight leading-none">7,400</span>
-                                <span class="text-lg font-bold text-brand-navy pb-1">円<span
-                                        class="text-xs">/月</span></span>
-                            </div>
-                            <p class="text-xs text-gray-400 mt-1">税込 8,140円</p>
-                        </div>
-                        <div class="p-8 bg-blue-50/50 flex-grow rounded-b-2xl">
-                            <div class="mb-6 text-center">
-                                <span
-                                    class="inline-flex items-center gap-1.5 bg-gradient-to-r from-red-50 to-orange-50 text-red-600 font-bold px-4 py-2 rounded-full text-sm shadow-sm border border-red-100">
-                                    <i class="fas fa-coins"></i> 1日あたり 約240円
-                                </span>
-                            </div>
-                            <ul class="space-y-4 text-sm text-gray-800 font-bold">
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-accent text-lg mt-0.5"></i><span>オリジナルデザイン制作</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-accent text-lg mt-0.5"></i><span>スマホ対応・高速表示</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-accent text-lg mt-0.5"></i><span>高度なSEO・アクセス解析</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-accent text-lg mt-0.5"></i><span>お問い合わせフォーム設置</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-accent text-lg mt-0.5"></i><span>サーバー・ドメイン管理</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-accent text-lg mt-0.5"></i><span><span
-                                            class="font-black border-b-2 border-brand-accent/50">月5回</span>のテキスト・画像修正</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Plan 3: プレミアム -->
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out delay-300 h-full">
-                    <div
-                        class="bg-white rounded-2xl border border-gray-200 flex flex-col h-full overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <div class="p-8 text-center bg-gray-50 border-b border-gray-100">
-                            <div
-                                class="inline-block bg-brand-gold/10 text-brand-gold font-black text-xs px-4 py-1.5 rounded-full mb-3 tracking-wider">
-                                7〜12ページ</div>
-                            <h4 class="text-2xl font-black text-gray-700 mb-3 tracking-widest">プレミアム</h4>
-                            <div class="mb-1">
-                                <span class="text-gray-500 text-sm font-bold">月額</span>
-                            </div>
-                            <div class="flex justify-center items-end gap-1">
-                                <span class="text-5xl font-black text-gray-800 tracking-tight leading-none">9,900</span>
-                                <span class="text-lg font-bold text-gray-500 pb-1">円<span
-                                        class="text-xs">/月</span></span>
-                            </div>
-                            <p class="text-xs text-gray-400 mt-1">税込 10,890円</p>
-                        </div>
-                        <div class="p-8 bg-white flex-grow">
-                            <ul class="space-y-4 text-sm text-gray-700 font-medium">
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-gold/70 text-base mt-0.5"></i><span>オリジナルデザイン制作</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-gold/70 text-base mt-0.5"></i><span>スマホ対応・高速表示</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-gold/70 text-base mt-0.5"></i><span>高度なSEO・アクセス解析</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-gold/70 text-base mt-0.5"></i><span>お問い合わせフォーム設置</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-gold/70 text-base mt-0.5"></i><span>サーバー・ドメイン管理</span>
-                                </li>
-                                <li class="flex items-start gap-3"><i
-                                        class="fas fa-check-circle text-brand-gold/70 text-base mt-0.5"></i><span><span
-                                            class="font-bold text-gray-900 border-b border-brand-accent/30">月5回</span>のテキスト・画像修正</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Comparison Table -->
-            <div class="mt-24 max-w-4xl mx-auto">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl md:text-3xl font-heading font-black text-gray-900 drop-shadow-sm">
-                        他社との圧倒的な違い
-                    </h3>
-                </div>
-                <div
-                    class="scroll-animate opacity-0 translate-y-12 transition-all duration-700 ease-out bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse min-w-[600px]">
-                            <thead>
-                                <tr class="bg-gray-50 border-b border-gray-200">
-                                    <th class="p-4 text-gray-500 font-bold w-1/4">比較項目</th>
-                                    <th class="p-4 bg-brand-blue/5 border-x border-gray-200 w-1/4 text-center">
-                                        <div class="text-brand-navy font-black text-xl mb-1">WEB-CRAFT</div>
-                                        <div class="text-xs font-bold text-brand-blue">当社</div>
-                                    </th>
-                                    <th class="p-4 text-gray-600 font-bold w-1/4 text-center">A社<br><span
-                                            class="text-xs font-normal">（一般的な制作会社）</span></th>
-                                    <th class="p-4 text-gray-600 font-bold w-1/4 text-center">B社<br><span
-                                            class="text-xs font-normal">（サブスク制作）</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-sm md:text-base">
-                                <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-bold text-gray-700 bg-gray-50/50">初期費用（制作費）</td>
-                                    <td
-                                        class="p-4 text-center font-black text-red-600 text-lg bg-brand-blue/5 border-x border-gray-200">
-                                        0円</td>
-                                    <td class="p-4 text-center text-gray-600">約30万〜50万円</td>
-                                    <td class="p-4 text-center text-gray-600">0円</td>
-                                </tr>
-                                <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-bold text-gray-700 bg-gray-50/50">月額費用</td>
-                                    <td
-                                        class="p-4 text-center font-black text-brand-navy text-lg bg-brand-blue/5 border-x border-gray-200">
-                                        4,900円〜</td>
-                                    <td class="p-4 text-center text-gray-600">保守費 5,000〜10,000円</td>
-                                    <td class="p-4 text-center text-gray-600">9,800円〜</td>
-                                </tr>
-                                <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-bold text-gray-700 bg-gray-50/50">オリジナルデザイン</td>
-                                    <td
-                                        class="p-4 text-center font-bold text-brand-navy bg-brand-blue/5 border-x border-gray-200">
-                                        <i class="fas fa-circle text-brand-accent text-xs mr-1"></i> 完全オリジナル
-                                    </td>
-                                    <td class="p-4 text-center text-gray-600"><i
-                                            class="fas fa-circle text-green-400 text-xs mr-1"></i> オリジナル</td>
-                                    <td class="p-4 text-center text-gray-600"><i
-                                            class="fas fa-triangle-exclamation text-yellow-400 text-xs mr-1"></i> テンプレ多め
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-bold text-gray-700 bg-gray-50/50">月の修正回数</td>
-                                    <td
-                                        class="p-4 text-center font-bold text-brand-navy bg-brand-blue/5 border-x border-gray-200">
-                                        <i class="fas fa-circle text-brand-accent text-xs mr-1"></i> 月5回まで無料
-                                    </td>
-                                    <td class="p-4 text-center text-gray-600"><i class="fas fa-times text-gray-300"></i>
-                                        別途有料<br><span class="text-xs">（1回 3,000〜5,000円）</span></td>
-                                    <td class="p-4 text-center text-gray-600"><i
-                                            class="fas fa-circle text-green-400 text-xs mr-1"></i> 月3回程度</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-4 font-bold text-gray-700 bg-gray-50/50">SEO対策</td>
-                                    <td
-                                        class="p-4 text-center font-bold text-brand-navy bg-brand-blue/5 border-x border-gray-200">
-                                        <i class="fas fa-circle text-brand-accent text-xs mr-1"></i> 全プラン標準
-                                    </td>
-                                    <td class="p-4 text-center text-gray-600"><i class="fas fa-times text-gray-300"></i>
-                                        別途オプション</td>
-                                    <td class="p-4 text-center text-gray-600"><i
-                                            class="fas fa-triangle-exclamation text-yellow-400 text-xs mr-1"></i> 簡易的
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Global Action -->
-            <div class="mt-16 text-center max-w-lg mx-auto">
-                <p class="text-lg font-bold text-brand-navy mb-4">すべてのプランで<span
-                        class="text-brand-accent">初期費用（制作費）は無料</span>です。</p>
-                <a href="#contact"
-                    class="block w-full py-5 rounded-full bg-brand-navy text-white font-bold text-lg shadow-xl hover:bg-brand-blue transition transform hover:-translate-y-1">
-                    まずは無料相談（お見積り）へ
-                </a>
-                <p class="text-xs text-gray-400 mt-6 leading-relaxed">
-                    ※ 最低契約期間は12ヶ月となります。<br>
-                    ※ オプションやカスタマイズについての詳細はご相談ください。
-                </p>
-            </div>
+        <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rv fr d2 opacity-80">
+          <img src="assets/concern-meetings.png" class="w-full h-full object-contain drop-shadow-2xl" alt="">
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Speed Delivery (UR-U Style White/Navy) -->
-    <!-- Speed Delivery (UR-U Style White/Navy) -->
-    <section id="flow" class="pt-12 md:pt-24 pb-0 bg-white relative overflow-hidden text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <!-- Centered Content -->
-            <div class="max-w-4xl mx-auto">
-                <h2
-                    class="text-3xl sm:text-4xl md:text-7xl font-black font-heading leading-none mb-6 text-brand-navy relative">
-                    <span class="block text-gray-300 text-xl sm:text-2xl md:text-4xl mb-2">最短</span>
-                    <div class="flex items-center justify-center gap-2">
-                        <span
-                            class="block text-brand-navy font-black text-6xl sm:text-7xl md:text-9xl tracking-tighter drop-shadow-md">1
-                            WEEK</span>
-                    </div>
-                    <span
-                        class="block text-xl sm:text-2xl md:text-4xl mt-4 font-bold tracking-wider text-brand-blue">ご依頼から約1週間でスピード納品</span>
-                </h2>
-                <div class="mb-12"></div>
+    <!-- Pain 02 -->
+    <div class="pain-row">
+      <div class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-10">
+        <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rv fl d2 opacity-80">
+          <img src="assets/concern-speed.png" class="w-full h-full object-contain drop-shadow-2xl" alt="">
+        </div>
+        <div class="rv fr text-left md:text-right">
+          <div class="font-heading font-black text-white/5 leading-none mb-4 select-none" style="font-size:clamp(5rem,12vw,10rem)">02</div>
+          <h3 class="font-heading font-black leading-tight" style="font-size:clamp(1.8rem,4.5vw,3.8rem)">
+            少し変更するだけで、<br><span class="gt">修正費用がかかる。</span>
+          </h3>
+          <div class="ld mt-6 rv on d2 ml-auto" style="max-width:300px"></div>
+          <p class="text-white/75 mt-5 max-w-lg text-sm leading-relaxed ml-auto rv on d3">
+            営業時間を変えたいだけなのに数千円…<br>業者に頼むのが億劫になっていませんか？
+          </p>
+        </div>
+      </div>
+    </div>
 
-                <!-- Steps (Centered Stack or Grid) -->
-                <div class="grid md:grid-cols-3 gap-6 text-left">
-                    <div
-                        class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-lg transition">
-                        <div
-                            class="w-12 h-12 flex items-center justify-center bg-brand-navy rounded-full text-white font-bold text-xl mb-4">
-                            1</div>
-                        <h4 class="font-bold text-brand-navy text-lg mb-2">フォーム入力・送信</h4>
-                        <p class="text-xs text-gray-500">フォーム入力後、チャットで完結します。</p>
-                    </div>
-                    <div
-                        class="flex flex-col items-center text-center p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-lg transition">
-                        <div
-                            class="w-12 h-12 flex items-center justify-center bg-brand-navy rounded-full text-white font-bold text-xl mb-4">
-                            2</div>
-                        <h4 class="font-bold text-brand-navy text-lg mb-2">デモサイト作成・確認</h4>
-                        <p class="text-xs text-gray-500">数日後にプロトタイプをご確認いただきます。</p>
-                    </div>
-                    <div
-                        class="flex flex-col items-center text-center p-6 bg-brand-blue/5 rounded-2xl border border-brand-blue/20">
-                        <div
-                            class="w-12 h-12 flex items-center justify-center bg-brand-blue text-white rounded-full font-black text-xl shadow-lg mb-4">
-                            3</div>
-                        <h4 class="font-bold text-brand-blue text-lg mb-2">公開・納品</h4>
-                        <p class="text-xs text-gray-500">約1週間で納品。すぐに集客を開始できます。</p>
-                    </div>
-                </div>
+    <!-- Pain 03 -->
+    <div class="pain-row">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+        <div class="rv fl">
+          <div class="font-heading font-black text-white/5 leading-none mb-4 select-none" style="font-size:clamp(5rem,12vw,10rem)">03</div>
+          <h3 class="font-heading font-black leading-tight" style="font-size:clamp(1.8rem,4.5vw,3.8rem)">
+            そもそも初期費用が、<br><span class="gt-cool">重すぎる。</span>
+          </h3>
+          <div class="ld mt-6 rv on d2" style="max-width:300px"></div>
+          <p class="text-white/75 mt-5 max-w-lg text-sm leading-relaxed rv on d3">
+            HPは欲しいけど予算がない…<br>スモールビジネスには初期コストが高すぎませんか？
+          </p>
+        </div>
+        <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rv fr d2 opacity-80">
+          <img src="assets/concern-cost.png" class="w-full h-full object-contain drop-shadow-2xl" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resolution statement -->
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-24 text-center">
+    <p class="font-heading font-black rv" style="font-size:clamp(2rem,5.5vw,4.5rem);line-height:1.15">
+      その悩み、<span class="gt">WEB-CRAFT</span>なら<br>全部解決できます。
+    </p>
+    <div class="flex justify-center mt-8">
+      <i class="fas fa-arrow-down text-2xl text-white/20 animate-bounce"></i>
+    </div>
+  </div>
+</section>
+
+<div class="gdiv"></div>
+
+<!-- ══════════════════ ABOUT ══════════════════ -->
+<section class="relative py-24 md:py-36 overflow-hidden">
+  <div class="orb w-[600px] h-[600px] bg-purple-700/15 bottom-[-100px] left-[-150px]" style="animation:ob1 20s ease-in-out infinite"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+      <!-- Image -->
+      <div class="md:w-5/12 relative flex justify-center rv fl">
+        <div class="absolute inset-0 gb rounded-full blur-3xl opacity-15 scale-90"></div>
+        <img src="images/akihito-profile.png" alt="Yamasaki Akihito" class="relative z-10 w-3/4 md:w-full max-w-xs md:max-w-sm drop-shadow-2xl">
+        <!-- Name plate - no card, just floating text -->
+        <div class="absolute bottom-0 left-0 md:-left-8 z-20">
+          <div class="text-[10px] font-bold tracking-[.25em] text-white/40 uppercase mb-1">製作者</div>
+          <div class="font-heading font-black text-2xl md:text-3xl text-white leading-none">山﨑 明仁</div>
+          <div class="text-[10px] text-white/30 tracking-widest mt-1">Yamasaki Akihito</div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="md:w-7/12 rv fr">
+        <span class="badge mb-6">About</span>
+        <h3 class="font-heading font-black leading-tight mt-4 mb-8" style="font-size:clamp(1.8rem,4vw,3.5rem)">
+          「集客できるサイト」を<br><span class="gt">もっと身近に。</span>
+        </h3>
+        <div class="space-y-5 text-white/80 leading-relaxed text-base md:text-lg">
+          <p>個人事業主やスモールビジネスの皆様にとって、<span class="font-bold text-white">HPにそこまで多額の費用をかける必要はありません。</span></p>
+          <p>最新AIを駆使して限界までコストを削減しつつも、現役マーケターとして培った「お客様に届きやすい・見やすい」デザインにこだわっています。</p>
+          <p>本当に大切なのは、作った後の<span class="font-bold text-purple-400">「運用」</span>です。制作から運用まで、強い味方としてサポートし続けます。</p>
+        </div>
+        <div class="flex flex-wrap gap-8 mt-10 pt-8 border-t border-white/08">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full gb flex items-center justify-center">
+              <i class="fab fa-instagram"></i>
             </div>
+            <div>
+              <div class="text-[10px] text-white/30 tracking-widest uppercase">Instagram</div>
+              <div class="font-heading font-black text-xl text-white">3.3万人</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+              <i class="fab fa-tiktok"></i>
+            </div>
+            <div>
+              <div class="text-[10px] text-white/30 tracking-widest uppercase">TikTok</div>
+              <div class="font-heading font-black text-xl text-white">2.2万人</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gdiv"></div>
+
+<!-- ══════════════════ WHY ══════════════════ -->
+<section class="relative py-24 md:py-36 overflow-hidden">
+  <div class="orb w-[700px] h-[700px] bg-pink-700/15 top-0 right-[-200px]" style="animation:ob3 22s ease-in-out infinite"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-20">
+      <span class="badge rv">Why WEB-CRAFT?</span>
+      <h2 class="font-heading font-black mt-8 rv d1" style="font-size:clamp(2rem,6vw,5rem);line-height:1.15">
+        なぜ<span class="gt">こんなに安く</span><br>プロクオリティが出せるのか？
+      </h2>
+      <p class="text-white/65 mt-4 rv d2">従来の「作って終わり」の制作会社とは、仕組みが違います。</p>
+    </div>
+
+    <!-- Reason 01 -->
+    <div class="feat-row rv">
+      <div class="text-white/05 font-heading font-black select-none leading-none flex-shrink-0" style="font-size:clamp(4rem,8vw,7rem)">01</div>
+      <div class="flex-1">
+        <div class="w-10 h-10 gb rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-user-tie text-white"></i>
+        </div>
+        <h3 class="font-heading font-black text-2xl md:text-3xl text-white mb-3">代表自ら制作</h3>
+        <p class="text-white/70 text-sm leading-relaxed max-w-xl">外注費・営業マンの人件費など、無駄なコストを徹底カット。代表自身が直接制作に携わることで、高品質でありながら低コストでの提供を実現。</p>
+      </div>
+      <div class="hidden md:flex text-white/08 font-heading font-black select-none flex-shrink-0 leading-none" style="font-size:5rem">→</div>
+    </div>
+
+    <!-- Reason 02 -->
+    <div class="feat-row rv d1">
+      <div class="text-white/05 font-heading font-black select-none leading-none flex-shrink-0" style="font-size:clamp(4rem,8vw,7rem)">02</div>
+      <div class="flex-1">
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-robot text-white"></i>
+        </div>
+        <h3 class="font-heading font-black text-2xl md:text-3xl text-white mb-3">最新AIツールの活用</h3>
+        <p class="text-white/70 text-sm leading-relaxed max-w-xl">AIを駆使してクリーンなコードを素早く構築。圧倒的な表示速度とGoogleから評価されやすい堅牢なSEO対策を同時に実現します。</p>
+      </div>
+      <div class="hidden md:flex text-white/08 font-heading font-black select-none flex-shrink-0 leading-none" style="font-size:5rem">→</div>
+    </div>
+
+    <!-- Reason 03 -->
+    <div class="feat-row rv d2">
+      <div class="text-white/05 font-heading font-black select-none leading-none flex-shrink-0" style="font-size:clamp(4rem,8vw,7rem)">03</div>
+      <div class="flex-1">
+        <div class="w-10 h-10 gb-warm rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-infinity text-white"></i>
+        </div>
+        <h3 class="font-heading font-black text-2xl md:text-3xl text-white mb-3">初期費用0円のサブスク</h3>
+        <p class="text-white/70 text-sm leading-relaxed max-w-xl">まとまった初期費用や不明瞭な追加オプションは一切なし。月額定額で保守も修正もすべてお任せいただける、スモールビジネスに優しい料金体系。</p>
+      </div>
+      <div class="hidden md:flex text-white/08 font-heading font-black select-none flex-shrink-0 leading-none" style="font-size:5rem">→</div>
+    </div>
+  </div>
+</section>
+
+<div class="gdiv"></div>
+
+<!-- ══════════════════ FEATURES ══════════════════ -->
+<section id="features" class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Marquee -->
+  <div class="mq-wrap py-6 border-y border-white/06 mb-20">
+    <div class="mq-inner">
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">オリジナルデザイン</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">初期費用ゼロ</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">最短1週間納品</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">SEO対策込み</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">修正・更新無制限</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">オリジナルデザイン</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">初期費用ゼロ</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">最短1週間納品</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">SEO対策込み</span>
+      <span class="text-white/08 font-heading font-black uppercase tracking-widest text-5xl mx-12 select-none">修正・更新無制限</span>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-20">
+      <span class="badge rv">Features</span>
+      <h2 class="font-heading font-black mt-8 rv d1" style="font-size:clamp(2rem,6vw,5rem);line-height:1.15">
+        選ばれる<span class="gt">3つの理由</span>
+      </h2>
+    </div>
+
+    <!-- Feature rows - editorial style, no cards -->
+    <div>
+      <div class="feat-row rv">
+        <div class="font-heading font-black gt leading-none flex-shrink-0" style="font-size:clamp(3rem,6vw,5rem)">01</div>
+        <div class="flex-1">
+          <h3 class="font-heading font-black text-2xl md:text-4xl text-white leading-tight">初期費用ゼロ、<br class="md:hidden">月額定額で安心</h3>
+          <p class="text-white/70 text-sm leading-relaxed mt-3 max-w-xl">まとまった費用は不要。月額定額でプロのHPが持てるので、スモールビジネスでも安心してスタートできます。</p>
+        </div>
+        <div class="hidden md:block text-right flex-shrink-0">
+          <div class="text-white/20 text-sm font-bold tracking-widest uppercase">No Initial Cost</div>
+        </div>
+      </div>
+      <div class="feat-row rv d1">
+        <div class="font-heading font-black gt-warm leading-none flex-shrink-0" style="font-size:clamp(3rem,6vw,5rem)">02</div>
+        <div class="flex-1">
+          <h3 class="font-heading font-black text-2xl md:text-4xl text-white leading-tight">完全オリジナル<br class="md:hidden">デザイン</h3>
+          <p class="text-white/70 text-sm leading-relaxed mt-3 max-w-xl">テンプレートは使いません。あなたのビジネスの魅力が伝わる、世界に一つだけのデザインを制作します。</p>
+        </div>
+        <div class="hidden md:block text-right flex-shrink-0">
+          <div class="text-white/20 text-sm font-bold tracking-widest uppercase">100% Original</div>
+        </div>
+      </div>
+      <div class="feat-row rv d2">
+        <div class="font-heading font-black gt-cool leading-none flex-shrink-0" style="font-size:clamp(3rem,6vw,5rem)">03</div>
+        <div class="flex-1">
+          <h3 class="font-heading font-black text-2xl md:text-4xl text-white leading-tight">修正・更新・SEO<br class="md:hidden">まで全部込み</h3>
+          <p class="text-white/70 text-sm leading-relaxed mt-3 max-w-xl">追加料金なしで修正・更新対応。SEO対策も全プラン標準装備。作って終わりじゃない、ずっと使えるHPです。</p>
+        </div>
+        <div class="hidden md:block text-right flex-shrink-0">
+          <div class="text-white/20 text-sm font-bold tracking-widest uppercase">All Inclusive</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gdiv"></div>
+
+<!-- ══════════════════ WORKS ══════════════════ -->
+<section class="relative py-24 md:py-36 overflow-hidden">
+  <div class="orb w-[600px] h-[600px] bg-cyan-700/15 top-[-50px] left-[-100px]" style="animation:ob1 18s ease-in-out 3s infinite"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-20 md:mb-32">
+      <span class="badge rv">Works</span>
+      <h2 class="font-heading font-black mt-8 rv d1" style="font-size:clamp(2rem,6vw,5rem)">制作実績</h2>
+    </div>
+
+    <div class="space-y-32 md:space-y-48">
+      <!-- Work 01 -->
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="rv fl order-2 md:order-1">
+          <span class="badge mb-6" style="border-color:rgba(249,115,22,.4);background:rgba(249,115,22,.1)">Case 01</span>
+          <h3 class="font-heading font-black leading-tight mt-4 mb-6" style="font-size:clamp(1.5rem,3.5vw,2.8rem)">
+            「桜並木駅前の整骨院」様<br>オープンから<span class="gt-warm">Web予約80件</span>
+          </h3>
+          <div class="text-white/70 text-sm leading-relaxed mb-8 border-l-2 border-white/20 pl-5 italic">
+            「今までホームページすら持っていなかったのですが、山﨑さんに依頼して本当に世界が変わりました。地域の激戦区キーワードでSEO1位を獲得し続けており、オープン初月から80件の予約が入りました。」
+          </div>
+          <div class="flex items-center gap-4">
+            <img src="assets/sakuranamiki-director.jpg" alt="" class="w-12 h-12 rounded-full object-cover border border-white/20">
+            <div class="text-white/60 text-sm">桜並木駅前の整骨院 院長</div>
+          </div>
+        </div>
+        <div class="rv fr order-1 md:order-2 relative">
+          <div class="rounded-2xl overflow-hidden relative group">
+            <img src="assets/sakuranamiki-hp.png" alt="" class="w-full h-auto filter brightness-60 group-hover:brightness-90 transition duration-700">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="px-8 py-5 rounded-2xl text-center" style="background:rgba(0,0,0,0.65);backdrop-filter:blur(4px)">
+                <div class="text-white/60 font-bold text-xs uppercase tracking-widest text-center mb-2">Result</div>
+                <div class="font-heading font-black text-4xl md:text-5xl text-white text-center num-glow">月間予約 80件</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work 02 -->
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="rv fl relative">
+          <div class="rounded-2xl overflow-hidden w-4/5 ml-auto hover:scale-105 transition duration-500 relative z-10">
+            <img src="assets/kentblog-content.png" alt="" class="w-full h-auto">
+          </div>
+          <div class="absolute top-[25%] left-0 w-3/5 rounded-xl overflow-hidden -rotate-3 hover:rotate-0 transition duration-500 z-20 shadow-2xl border border-cyan-500/20">
+            <img src="assets/kentblog-search.png" alt="" class="w-full h-auto">
+          </div>
+        </div>
+        <div class="rv fr">
+          <span class="badge mb-6" style="border-color:rgba(0,212,255,.4);background:rgba(0,212,255,.08);color:rgba(0,212,255,.9)">Case 02</span>
+          <h3 class="font-heading font-black leading-tight mt-4 mb-6" style="font-size:clamp(1.5rem,3.5vw,2.8rem)">
+            激戦区キーワードで<br><span class="gt-cool">Google検索1位</span>を量産
+          </h3>
+          <p class="text-white/70 text-sm leading-relaxed">
+            個人運営のテックブログ「kentblog」にて、競合の多いIT系キーワードでGoogle検索1位の記事を5本獲得（2025年12月時点）。広告費ゼロで優良な見込み客を集め続ける仕組みを構築します。
+          </p>
+        </div>
+      </div>
+
+      <!-- Work 03 -->
+
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="rv fl order-2 md:order-1">
+          <span class="badge mb-6">Case 03</span>
+          <h3 class="font-heading font-black leading-tight mt-4 mb-6" style="font-size:clamp(1.5rem,3.5vw,2.8rem)">
+            愛犬家専用プラットフォーム<br><span class="gt">「ぺプラボ」</span>の開発・運営
+          </h3>
+          <p class="text-white/70 text-sm leading-relaxed mb-6">
+            企画・要件定義からデザイン・実装・運用まで全工程をリード。UXを徹底追求し、多くの愛犬家に愛されるサービスへと成長させました。
+          </p>
+          <div class="flex items-baseline gap-2">
+            <div class="font-heading font-black gt" style="font-size:3rem">10,000+</div>
+            <div class="text-white/30 text-sm font-bold uppercase tracking-widest">Monthly PV</div>
+          </div>
+        </div>
+        <div class="rv fr order-1 md:order-2 relative">
+          <div class="rounded-2xl overflow-hidden group hover:scale-105 transition duration-700">
+            <img src="assets/pepre-lab.png" alt="" class="w-full h-auto">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gdiv"></div>
+
+<!-- ══════════════════ PRICING ══════════════════ -->
+<section id="price" class="relative py-24 md:py-36 overflow-hidden">
+  <div class="orb w-[500px] h-[500px] bg-purple-700/20 bottom-0 right-[-100px]" style="animation:ob2 17s ease-in-out infinite"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-20">
+      <span class="badge rv">Pricing</span>
+      <h2 class="font-heading font-black mt-8 rv d1" style="font-size:clamp(2rem,6vw,5rem);line-height:1.15">
+        月額定額、<span class="gt">追加料金なし。</span>
+      </h2>
+      <p class="text-white/30 mt-3 text-sm rv d2">初期制作費無料 ／ プランの違いはページ数のみ ／ 機能はすべて共通</p>
+    </div>
+
+    <!-- Price columns - no cards, just columns with separators -->
+    <div class="border border-white/08 rounded-3xl overflow-hidden rv">
+      <div class="grid md:grid-cols-3">
+        <!-- Col 1 -->
+        <div class="price-col">
+          <div class="text-white/30 text-xs font-bold tracking-widest uppercase mb-5">1ページ</div>
+          <div class="font-heading font-black text-2xl text-white mb-2">ライト</div>
+          <div class="flex items-end gap-1 mb-1">
+            <span class="font-heading font-black text-white" style="font-size:3.5rem;line-height:1">4,900</span>
+            <span class="text-white/40 pb-2">円/月</span>
+          </div>
+          <div class="text-white/25 text-xs mb-8">税込 5,390円 ／ 1日あたり約<span class="text-orange-400 font-bold">160円</span></div>
+          <div class="space-y-4 text-sm">
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-purple-400 w-4"></i>オリジナルデザイン制作</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-purple-400 w-4"></i>スマホ対応・高速表示</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-purple-400 w-4"></i>高度なSEO・アクセス解析</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-purple-400 w-4"></i>お問い合わせフォーム</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-purple-400 w-4"></i>サーバー・ドメイン管理</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-purple-400 w-4"></i>月5回テキスト・画像修正</div>
+          </div>
         </div>
 
-        <!-- Group Divider Image -->
-        <div class="w-full flex justify-center mt-12 md:mt-20 px-4">
-            <div class="relative inline-block w-full max-w-sm md:max-w-lg">
-                <img src="assets/waiting-customer.png" alt="Happy Customer" class="w-full h-auto object-contain block">
-            </div>
+        <!-- Col 2 (popular) -->
+        <div class="price-col price-popular relative">
+          <div class="absolute top-0 left-0 right-0 h-[2px] gb"></div>
+          <div class="text-purple-400 text-xs font-bold tracking-widest uppercase mb-5">
+            <i class="fas fa-crown mr-1"></i> 一番人気 ／ 2〜6ページ
+          </div>
+          <div class="font-heading font-black text-2xl text-white mb-2">スタンダード</div>
+          <div class="flex items-end gap-1 mb-1">
+            <span class="font-heading font-black text-white" style="font-size:3.5rem;line-height:1">7,400</span>
+            <span class="text-white/40 pb-2">円/月</span>
+          </div>
+          <div class="text-white/25 text-xs mb-8">税込 8,140円 ／ 1日あたり約<span class="text-orange-400 font-bold">240円</span></div>
+          <div class="space-y-4 text-sm">
+            <div class="flex items-center gap-3 text-white font-bold"><i class="fas fa-check text-purple-400 w-4 text-lg"></i>オリジナルデザイン制作</div>
+            <div class="flex items-center gap-3 text-white font-bold"><i class="fas fa-check text-purple-400 w-4 text-lg"></i>スマホ対応・高速表示</div>
+            <div class="flex items-center gap-3 text-white font-bold"><i class="fas fa-check text-purple-400 w-4 text-lg"></i>高度なSEO・アクセス解析</div>
+            <div class="flex items-center gap-3 text-white font-bold"><i class="fas fa-check text-purple-400 w-4 text-lg"></i>お問い合わせフォーム</div>
+            <div class="flex items-center gap-3 text-white font-bold"><i class="fas fa-check text-purple-400 w-4 text-lg"></i>サーバー・ドメイン管理</div>
+            <div class="flex items-center gap-3 text-white font-bold"><i class="fas fa-check text-purple-400 w-4 text-lg"></i>月5回テキスト・画像修正</div>
+          </div>
         </div>
-    </section>
 
-    <!-- Representative Profile -->
-    <!-- Representative Profile (Removed/Moved) -->
-    <!-- Section Removed -->
-
-    <!-- CTA / Contact -->
-    <section id="contact" class="py-24 bg-brand-navy hero-pattern text-white text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl sm:text-3xl md:text-5xl font-heading font-black mb-8 leading-tight">
-                HPはお任せを
-            </h2>
-            <p class="text-xl text-blue-100 mb-12 relative inline-block">
-                HPに悩む時間はもうおしまい、<br>
-                自分のビジネスに集中できます。<br>
-                <span
-                    class="block mt-4 text-sm text-brand-gold border border-brand-gold rounded-full px-4 py-1">先着10社限定の無料キャンペーン中</span>
-            </p>
-
-            <a href="https://line.me/"
-                class="inline-flex items-center gap-3 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-2xl px-12 py-6 rounded-full shadow-lg transition transform hover:-translate-y-1 hover:shadow-xl w-full md:w-auto justify-center">
-                <i class="fab fa-line text-4xl"></i>
-                <div class="text-left leading-none">
-                    <span class="block text-xs font-normal mb-1">フォーム入力で完結</span>
-                    <span>お申し込みはこちら</span>
-                </div>
-            </a>
-
-            <p class="mt-8 text-sm text-gray-400">
-                ※お問い合わせはチャットのみ対応としております。<br>
-                お電話での対応は行っておりませんのでご了承ください。
-            </p>
+        <!-- Col 3 -->
+        <div class="price-col">
+          <div class="text-white/30 text-xs font-bold tracking-widest uppercase mb-5">7〜12ページ</div>
+          <div class="font-heading font-black text-2xl text-white mb-2">プレミアム</div>
+          <div class="flex items-end gap-1 mb-1">
+            <span class="font-heading font-black text-white" style="font-size:3.5rem;line-height:1">9,900</span>
+            <span class="text-white/40 pb-2">円/月</span>
+          </div>
+          <div class="text-white/25 text-xs mb-8">税込 10,890円</div>
+          <div class="space-y-4 text-sm">
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-orange-400 w-4"></i>オリジナルデザイン制作</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-orange-400 w-4"></i>スマホ対応・高速表示</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-orange-400 w-4"></i>高度なSEO・アクセス解析</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-orange-400 w-4"></i>お問い合わせフォーム</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-orange-400 w-4"></i>サーバー・ドメイン管理</div>
+            <div class="flex items-center gap-3 text-white/60"><i class="fas fa-check text-orange-400 w-4"></i>月5回テキスト・画像修正</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="bg-white/90 backdrop-blur-md text-gray-500 py-12 border-t border-gray-200 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4 text-gray-900">
-                        <span
-                            class="w-6 h-6 bg-brand-blue rounded flex items-center justify-center text-white text-xs font-bold">W</span>
-                        <span class="font-bold text-lg font-heading tracking-wider">WEB-CRAFT</span>
-                    </div>
-                    <p class="text-xs leading-relaxed max-w-xs text-gray-600">
-                        福岡を拠点に活動するWeb制作チーム。<br>
-                        「速さ」と「結果」にコミットする、<br>
-                        次世代のホームページ制作サービスです。
-                    </p>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 font-bold mb-4">Service</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#features" class="hover:text-brand-blue transition">特徴</a></li>
-                        <li><a href="#price" class="hover:text-brand-blue transition">料金プラン</a></li>
-                        <li><a href="#flow" class="hover:text-brand-blue transition">制作の流れ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 font-bold mb-4">Legal</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-brand-blue transition">運営会社</a></li>
-                        <li><a href="#" class="hover:text-brand-blue transition">プライバシーポリシー</a></li>
-                        <li><a href="#" class="hover:text-brand-blue transition">特定商取引法に基づく表記</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-200 pt-8 text-center text-xs text-gray-500">
-                &copy; 2024 WEB-CRAFT. All Rights Reserved.
-            </div>
+      <!-- Bottom note -->
+      <div class="border-t border-white/08 px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <p class="text-white/30 text-xs leading-relaxed">
+          ※ 最低契約期間は12ヶ月 ／ すべてのプランで初期費用（制作費）は無料
+        </p>
+        <a href="#contact" class="btn-g btn-ga text-sm px-8 py-3 flex-shrink-0">まずは無料相談へ</a>
+      </div>
+    </div>
+
+    <!-- Comparison - editorial table, no cards -->
+    <div class="mt-24 rv">
+      <h3 class="font-heading font-black text-2xl md:text-4xl text-white mb-12 text-center">他社との<span class="gt">圧倒的な違い</span></h3>
+      <div class="border-t border-white/08">
+        <!-- Header -->
+        <div class="cmp-row">
+          <div class="cmp-cell text-white/30 text-xs font-bold uppercase tracking-widest">比較項目</div>
+          <div class="cmp-cell text-center">
+            <div class="font-heading font-black text-xl gt">WEB-CRAFT</div>
+            <div class="text-white/30 text-xs mt-1">当社</div>
+          </div>
+          <div class="cmp-cell text-center text-white/40 text-sm font-bold">A社<br><span class="text-white/20 text-xs font-normal">一般的な制作会社</span></div>
+          <div class="cmp-cell text-center text-white/40 text-sm font-bold">B社<br><span class="text-white/20 text-xs font-normal">サブスク制作</span></div>
         </div>
-    </footer>
+        <div class="cmp-row"><div class="cmp-cell text-white/50 text-sm font-bold">初期費用</div><div class="cmp-cell text-center font-black text-red-400 text-lg">0円</div><div class="cmp-cell text-center text-white/55 text-sm">約30〜50万円</div><div class="cmp-cell text-center text-white/55 text-sm">0円</div></div>
+        <div class="cmp-row"><div class="cmp-cell text-white/70 text-sm font-bold">月額費用</div><div class="cmp-cell text-center font-black text-purple-300 text-lg">4,900円〜</div><div class="cmp-cell text-center text-white/55 text-sm">5,000〜10,000円</div><div class="cmp-cell text-center text-white/55 text-sm">9,800円〜</div></div>
+        <div class="cmp-row"><div class="cmp-cell text-white/70 text-sm font-bold">デザイン</div><div class="cmp-cell text-center text-purple-300 text-sm font-bold">完全オリジナル</div><div class="cmp-cell text-center text-white/55 text-sm">オリジナル</div><div class="cmp-cell text-center text-white/55 text-sm">テンプレ多め</div></div>
+        <div class="cmp-row"><div class="cmp-cell text-white/70 text-sm font-bold">月の修正</div><div class="cmp-cell text-center text-purple-300 text-sm font-bold">月5回無料</div><div class="cmp-cell text-center text-white/55 text-sm">別途有料</div><div class="cmp-cell text-center text-white/55 text-sm">月3回程度</div></div>
+        <div class="cmp-row"><div class="cmp-cell text-white/70 text-sm font-bold">SEO対策</div><div class="cmp-cell text-center text-purple-300 text-sm font-bold">全プラン標準</div><div class="cmp-cell text-center text-white/55 text-sm">別途オプション</div><div class="cmp-cell text-center text-white/55 text-sm">簡易的</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Scroll Animation & Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.remove('opacity-0', 'translate-y-8', 'translate-y-12');
-                        entry.target.classList.add('opacity-100', 'translate-y-0');
-                    } else {
-                        // Re-trigger animation on scroll out/in
-                        entry.target.classList.add('opacity-0');
-                        if (entry.target.dataset.staggerIndex) {
-                            entry.target.classList.add('translate-y-12');
-                        } else {
-                            entry.target.classList.add('translate-y-8');
-                        }
-                        entry.target.classList.remove('opacity-100', 'translate-y-0');
-                    }
-                });
-            }, observerOptions);
+<div class="gdiv"></div>
 
-            const animatedElements = document.querySelectorAll('.scroll-animate');
-            animatedElements.forEach((el, index) => {
-                if (el.parentElement.classList.contains('grid')) {
-                    el.dataset.staggerIndex = index % 3;
-                }
-                observer.observe(el);
-            });
+<!-- ══════════════════ FLOW ══════════════════ -->
+<section id="flow" class="relative py-24 md:py-36 overflow-hidden text-center">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <span class="badge rv">Flow</span>
+    <div class="mt-10 rv d1">
+      <div class="text-white/08 font-heading font-black leading-none select-none" style="font-size:clamp(1rem,3vw,2rem)">最短</div>
+      <div class="font-heading font-black leading-none num-glow" style="font-size:clamp(5rem,18vw,14rem)">
+        <span class="gt">1</span> <span class="text-white/90">WEEK</span>
+      </div>
+    </div>
+    <p class="font-heading font-black text-xl md:text-3xl text-white mb-16 rv d2">ご依頼から約1週間でスピード納品</p>
 
-            // Force play videos on mobile
-            const videos = document.querySelectorAll('video[autoplay]');
-            videos.forEach(video => {
-                video.addEventListener('loadedmetadata', function () {
-                    video.play().catch(e => console.log('Autoplay blocked:', e));
-                });
-                // Fallback for immediate play
-                video.play().catch(e => console.log('Autoplay blocked:', e));
+    <!-- Steps - no cards, just numbered text -->
+    <div class="grid md:grid-cols-3 gap-0 text-left border border-white/08 rounded-3xl overflow-hidden rv">
+      <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-white/08">
+        <div class="font-heading font-black gb text-transparent bg-clip-text text-5xl mb-5 leading-none">1</div>
+        <h4 class="font-heading font-black text-white text-xl mb-3">フォーム入力・送信</h4>
+        <p class="text-white/65 text-sm leading-relaxed">フォーム入力後、チャットで完結します。</p>
+      </div>
+      <div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-white/08">
+        <div class="font-heading font-black gt-warm text-5xl mb-5 leading-none">2</div>
+        <h4 class="font-heading font-black text-white text-xl mb-3">デモサイト作成・確認</h4>
+        <p class="text-white/65 text-sm leading-relaxed">数日後にプロトタイプをご確認いただきます。</p>
+      </div>
+      <div class="p-8 md:p-10" style="background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(236,72,153,.05))">
+        <div class="font-heading font-black gt-cool text-5xl mb-5 leading-none">3</div>
+        <h4 class="font-heading font-black text-white text-xl mb-3">公開・納品</h4>
+        <p class="text-white/65 text-sm leading-relaxed">約1週間で納品。すぐに集客を開始できます。</p>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center mt-16 px-4">
+    <img src="assets/waiting-customer.png" alt="" class="w-full max-w-xs md:max-w-md h-auto object-contain">
+  </div>
+</section>
 
-                // Add touchstart event listener as an extra fallback for iOS
-                document.body.addEventListener('touchstart', function () {
-                    if (video.paused) {
-                        video.play().catch(e => console.log('Autoplay blocked on touch:', e));
-                    }
-                }, { once: true });
-            });
-        });
+<div class="gdiv"></div>
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+<!-- ══════════════════ CTA ══════════════════ -->
+<section id="contact" class="relative py-32 md:py-48 overflow-hidden text-center">
+  <div class="orb w-[700px] h-[700px] bg-purple-700/25 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="animation:ob1 15s ease-in-out infinite"></div>
+  <div class="orb w-[400px] h-[400px] bg-pink-600/20 top-0 right-0" style="animation:ob2 12s ease-in-out infinite"></div>
 
-        // Mobile Menu
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+  <div class="max-w-4xl mx-auto px-5 sm:px-8 relative z-10">
+    <span class="badge rv">Contact</span>
+    <h2 class="font-heading font-black mt-8 mb-6 rv d1" style="font-size:clamp(2.5rem,7vw,6rem);line-height:1.1">
+      HPはお任せを。
+    </h2>
+    <p class="text-white/75 text-lg mb-4 rv d2">HPに悩む時間はもうおしまい。<br>あなたのビジネスに集中できます。</p>
+    <div class="inline-block mb-12 text-sm text-white/60 border border-white/15 bg-white/05 rounded-full px-5 py-2 rv d3">
+      先着10社限定の無料キャンペーン中
+    </div>
+    <div class="flex justify-center rv d4">
+      <a href="https://line.me/" class="btn-g text-white font-bold text-xl px-10 py-5 gap-4" style="background:#06C755;box-shadow:0 0 60px rgba(6,199,85,.3)">
+        <i class="fab fa-line text-3xl"></i>
+        <div class="text-left leading-none">
+          <span class="block text-xs font-normal mb-1 text-white/70">フォーム入力で完結</span>
+          <span>お申し込みはこちら</span>
+        </div>
+      </a>
+    </div>
+    <p class="mt-8 text-xs text-white/20 rv d5">
+      ※お問い合わせはチャットのみ対応。お電話での対応は行っておりません。
+    </p>
+  </div>
+</section>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="border-t border-white/06 py-12 relative z-10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid md:grid-cols-4 gap-8 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-6 h-6 gb rounded flex items-center justify-center text-white text-xs font-bold">W</span>
+          <span class="font-heading font-black text-lg text-white tracking-wider">WEB-CRAFT</span>
+        </div>
+        <p class="text-xs text-white/25 leading-relaxed">福岡を拠点に活動するWeb制作チーム。<br>「速さ」と「結果」にコミットする次世代のHP制作サービス。</p>
+      </div>
+      <div>
+        <h4 class="text-white/40 font-bold text-xs uppercase tracking-widest mb-4">Service</h4>
+        <ul class="space-y-2">
+          <li><a href="#features" class="text-white/30 hover:text-white transition text-sm">特徴</a></li>
+          <li><a href="#price" class="text-white/30 hover:text-white transition text-sm">料金プラン</a></li>
+          <li><a href="#flow" class="text-white/30 hover:text-white transition text-sm">制作の流れ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white/40 font-bold text-xs uppercase tracking-widest mb-4">Legal</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-white/30 hover:text-white transition text-sm">運営会社</a></li>
+          <li><a href="#" class="text-white/30 hover:text-white transition text-sm">プライバシーポリシー</a></li>
+          <li><a href="#" class="text-white/30 hover:text-white transition text-sm">特定商取引法</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/06 pt-8 text-center text-xs text-white/15">
+      &copy; 2024 WEB-CRAFT. All Rights Reserved.
+    </div>
+  </div>
+</footer>
 
+<!-- ══════════════════ SCRIPTS ══════════════════ -->
+<script>
+(function() {
+  // ── STARFIELD ──
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let stars = [], shootingStars = [];
+  let W, H;
 
-    </script>
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    initStars();
+  }
+
+  function initStars() {
+    stars = Array.from({ length: 220 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.4 + 0.2,
+      o: Math.random() * 0.7 + 0.15,
+      phase: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.008 + 0.004
+    }));
+  }
+
+  function spawnShootingStar() {
+    shootingStars.push({
+      x: Math.random() * W * 0.7,
+      y: Math.random() * H * 0.4,
+      len: Math.random() * 120 + 60,
+      speed: Math.random() * 8 + 6,
+      opacity: 1,
+      angle: Math.PI / 5
+    });
+  }
+
+  setInterval(spawnShootingStar, 4000);
+  spawnShootingStar();
+
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    frame++;
+
+    // Stars
+    stars.forEach(s => {
+      s.phase += s.speed;
+      const o = s.o * (0.6 + 0.4 * Math.sin(s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${o})`;
+      ctx.fill();
+    });
+
+    // Shooting stars
+    shootingStars = shootingStars.filter(ss => ss.opacity > 0);
+    shootingStars.forEach(ss => {
+      const grad = ctx.createLinearGradient(ss.x, ss.y, ss.x - Math.cos(ss.angle) * ss.len, ss.y - Math.sin(ss.angle) * ss.len);
+      grad.addColorStop(0, `rgba(255,255,255,${ss.opacity})`);
+      grad.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.beginPath();
+      ctx.moveTo(ss.x, ss.y);
+      ctx.lineTo(ss.x - Math.cos(ss.angle) * ss.len, ss.y - Math.sin(ss.angle) * ss.len);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ss.x += Math.cos(ss.angle) * ss.speed;
+      ss.y += Math.sin(ss.angle) * ss.speed;
+      ss.opacity -= 0.015;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+
+  // ── CURSOR ──
+  const cursor = document.getElementById('cursor');
+  const glow = document.getElementById('cursor-glow');
+  let mx = 0, my = 0, cx = 0, cy = 0;
+
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  // Lerp cursor
+  function moveCursor() {
+    cx += (mx - cx) * 0.12;
+    cy += (my - cy) * 0.12;
+    cursor.style.left = cx + 'px';
+    cursor.style.top = cy + 'px';
+    glow.style.left = mx + 'px';
+    glow.style.top = my + 'px';
+    requestAnimationFrame(moveCursor);
+  }
+  moveCursor();
+
+  document.querySelectorAll('a,button').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.width = '30px'; cursor.style.height = '30px'; cursor.style.background = 'rgba(124,58,237,0.5)'; });
+    el.addEventListener('mouseleave', () => { cursor.style.width = '10px'; cursor.style.height = '10px'; cursor.style.background = '#fff'; });
+  });
+
+  // ── HEADER scroll ──
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      header.style.background = 'rgba(5,5,16,0.9)';
+      header.style.backdropFilter = 'blur(20px)';
+      header.style.borderBottom = '1px solid rgba(255,255,255,0.07)';
+    } else {
+      header.style.background = 'transparent';
+      header.style.backdropFilter = 'none';
+      header.style.borderBottom = 'none';
+    }
+  });
+
+  // ── SCROLL REVEAL ──
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        // Trigger line draws in this element
+        e.target.querySelectorAll('.ld').forEach(l => l.classList.add('on'));
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  document.querySelectorAll('.ld').forEach(el => io.observe(el));
+
+  // ── COUNT UP ──
+  const countIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.counted) {
+        e.target.dataset.counted = '1';
+        const target = parseInt(e.target.dataset.target);
+        let start = null;
+        const dur = 1800;
+        function step(ts) {
+          if (!start) start = ts;
+          const prog = Math.min((ts - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - prog, 3);
+          e.target.textContent = Math.floor(eased * target);
+          if (prog < 1) requestAnimationFrame(step);
+          else e.target.textContent = target;
+        }
+        requestAnimationFrame(step);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.count-num').forEach(el => countIo.observe(el));
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const t = document.querySelector(this.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // ── MOBILE MENU ──
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+
+  // ── VIDEO AUTOPLAY ──
+  document.querySelectorAll('video[autoplay]').forEach(v => {
+    v.play().catch(() => {});
+    document.body.addEventListener('touchstart', () => { if (v.paused) v.play().catch(() => {}); }, { once: true });
+  });
+
+})();
+</script>
 </body>
-
 </html>
